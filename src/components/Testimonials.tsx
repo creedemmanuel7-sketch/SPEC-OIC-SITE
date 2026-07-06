@@ -51,11 +51,11 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-6 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 relative"
+              className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-6 hover:bg-white/10 sm:hover:-translate-y-1 transition-all duration-300 relative shrink-0 w-[85vw] sm:w-auto snap-center"
             >
               <Quote className="absolute top-6 right-6 w-10 h-10 text-spec-blue/15" />
 

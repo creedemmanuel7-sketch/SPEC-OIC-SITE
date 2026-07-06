@@ -28,8 +28,14 @@ export function Header() {
           <Link href="/reseau" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-spec-blue dark:hover:text-spec-blue transition-colors">
             Notre Réseau
           </Link>
+          <Link href="/actualites" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-spec-blue dark:hover:text-spec-blue transition-colors">
+            Actualités
+          </Link>
           <div className="w-px h-6 bg-gray-200 dark:bg-white/10 mx-2" />
           <ThemeToggle />
+          <Link href="/espace-client" className="px-5 py-2.5 rounded-full bg-spec-blue/10 text-spec-blue text-sm font-bold hover:bg-spec-blue/20 transition-colors">
+            Mon Espace
+          </Link>
           <Link href="/contact" className="px-5 py-2.5 rounded-full bg-spec-blue text-white text-sm font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-spec-blue/30">
             Nous Contacter
           </Link>
@@ -53,7 +59,11 @@ export function Header() {
           <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Services</Link>
           <Link href="/a-propos" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">À Propos</Link>
           <Link href="/reseau" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Notre Réseau</Link>
+          <Link href="/actualites" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Actualités</Link>
           <hr className="border-gray-200 dark:border-white/10 my-2" />
+          <Link href="/espace-client" onClick={() => setIsMobileMenuOpen(false)} className="px-5 py-3 text-center rounded-xl bg-spec-blue/10 text-spec-blue font-bold">
+            Mon Espace
+          </Link>
           <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="px-5 py-3 text-center rounded-xl bg-spec-blue text-white font-bold">
             Nous Contacter
           </Link>

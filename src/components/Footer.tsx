@@ -4,8 +4,12 @@ import Link from "next/link";
 
 const navLinks = [
   { href: "/services", label: "Nos Services" },
+  { href: "/simulateur", label: "Simulateur de Crédit" },
+  { href: "/demande-de-pret", label: "Demande de Prêt" },
+  { href: "/actualites", label: "Actualités" },
   { href: "/a-propos", label: "À Propos" },
   { href: "/reseau", label: "Notre Réseau" },
+  { href: "/publications", label: "Transparence & Publications" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
   { href: "/mentions-legales", label: "Mentions Légales" },
