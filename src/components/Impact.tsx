@@ -16,14 +16,14 @@ export function Impact() {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 divide-white/20">
           {metrics.map((metric, idx) => (
-            <div key={idx} className="text-center pt-8 md:pt-0 px-4">
+            <div key={idx} className="text-center p-6 rounded-2xl bg-spec-blue-dark/30 border border-white/10">
               <div className="flex items-baseline justify-center gap-1 mb-2">
-                <span className="text-5xl md:text-6xl font-extrabold tracking-tight">{metric.value}</span>
-                <span className="text-2xl font-bold text-blue-200">{metric.suffix}</span>
+                <span className="text-4xl md:text-6xl font-extrabold tracking-tight">{metric.value}</span>
+                <span className="text-xl md:text-2xl font-bold text-blue-200">{metric.suffix}</span>
               </div>
-              <p className="font-medium text-blue-100 uppercase tracking-wider text-sm">{metric.label}</p>
+              <p className="font-medium text-blue-100 uppercase tracking-wider text-xs md:text-sm">{metric.label}</p>
             </div>
           ))}
         </div>

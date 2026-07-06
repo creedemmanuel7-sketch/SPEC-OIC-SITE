@@ -38,22 +38,14 @@ export function About() {
           </div>
 
           {/* Image Column */}
-          <div className="flex-1 relative w-full">
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
-              <Image
-                src="/about.png"
-                alt="Assemblée générale SPEC OIC-Togo 2025"
+          <div className="flex-1 relative w-full lg:w-auto mt-10 lg:mt-0">
+            <div className="relative min-h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl">
+              <Image 
+                src="/team_meeting.png" 
+                alt="SPEC OIC-Togo Équipe" 
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-spec-black/60 to-transparent" />
-              {/* Badge on image */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/10 dark:bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <p className="text-white text-sm font-medium">
-                  ✦ Assemblée générale — <span className="font-bold">Notsè, juin 2025</span>
-                </p>
-                <p className="text-blue-200 text-xs mt-1">Approbation des rapports d'activités 2025 | Source : ATOP</p>
-              </div>
             </div>
             {/* Decorative element */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl bg-spec-blue/10 dark:bg-spec-blue/5 border border-spec-blue/20 -z-10" />

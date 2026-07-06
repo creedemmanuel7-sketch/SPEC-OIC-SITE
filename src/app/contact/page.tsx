@@ -1,9 +1,27 @@
-import { MapPin, Phone, Mail, Clock, Send, ChevronRight } from "lucide-react";
+"use client";
+
+import { MapPin, Phone, Mail, Clock, Send, ChevronRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      // Reset form after 3 seconds
+      setTimeout(() => setIsSuccess(false), 5000);
+    }, 1500);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-spec-dark pt-32 pb-24">
+    <div className="min-h-screen bg-gray-50 dark:bg-spec-dark pt-12 pb-24">
       <div className="container mx-auto px-6">
         
         {/* Breadcrumb */}
@@ -22,23 +40,34 @@ export default function ContactPage() {
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Form Section */}
-          <div className="lg:col-span-2 bg-white dark:bg-spec-black rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 dark:border-white/5">
+          <div className="lg:col-span-2 bg-white dark:bg-spec-black rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 dark:border-white/5 relative overflow-hidden">
+            
+            {isSuccess ? (
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-white dark:bg-spec-black z-10 p-8 text-center animate-in fade-in duration-300">
+                <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-6">
+                  <CheckCircle2 className="w-10 h-10" />
+                </div>
+                <h2 className="text-2xl font-bold text-spec-black dark:text-white mb-4">Message envoyé avec succès !</h2>
+                <p className="text-gray-600 dark:text-gray-400">Nous avons bien reçu votre demande et vous répondrons dans les plus brefs délais.</p>
+              </div>
+            ) : null}
+
             <h2 className="text-2xl font-bold text-spec-black dark:text-white mb-8">Envoyez-nous un message</h2>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-gray-300">Nom complet</label>
-                  <input type="text" id="name" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="Jean Dupont" />
+                  <input required type="text" id="name" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="Jean Dupont" />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm font-medium text-gray-700 dark:text-gray-300">Numéro de téléphone</label>
-                  <input type="tel" id="phone" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="(+228) 00 00 00 00" />
+                  <input required type="tel" id="phone" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="(+228) 00 00 00 00" />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-300">Adresse email</label>
-                <input type="email" id="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="jean@exemple.com" />
+                <input required type="email" id="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="creedemmanuel7@gmail.com" />
               </div>
 
               <div className="space-y-2">
@@ -53,12 +82,12 @@ export default function ContactPage() {
 
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium text-gray-700 dark:text-gray-300">Votre message</label>
-                <textarea id="message" rows={5} className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all resize-none dark:text-white" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                <textarea required id="message" rows={5} className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all resize-none dark:text-white" placeholder="Comment pouvons-nous vous aider ?"></textarea>
               </div>
 
-              <button type="button" className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-spec-blue text-white font-bold text-lg hover:bg-blue-700 transition-colors shadow-xl shadow-spec-blue/30">
-                <Send className="w-5 h-5" />
-                Envoyer le message
+              <button disabled={isSubmitting} type="submit" className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-spec-blue text-white font-bold text-lg hover:bg-blue-700 transition-colors shadow-xl shadow-spec-blue/30 disabled:opacity-70">
+                <Send className={`w-5 h-5 ${isSubmitting ? 'animate-bounce' : ''}`} />
+                {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
               </button>
             </form>
           </div>
@@ -92,7 +121,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold mb-1">Email</p>
-                    <p className="text-gray-400 text-sm">secretariat.dg.specoic@...</p>
+                    <p className="text-gray-400 text-sm">creedemmanuel7@gmail.com</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">

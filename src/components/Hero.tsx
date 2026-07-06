@@ -4,41 +4,41 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-[90vh] flex items-center bg-spec-black overflow-hidden pt-20">
+    <section className="relative w-full min-h-[85vh] flex items-center bg-spec-black overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/hero.png" 
+          src="/hero_agriculture.png" 
           alt="Agriculture Togo" 
           fill 
-          className="object-cover opacity-40 object-center"
+          className="object-cover opacity-60 object-center dark:opacity-40 transition-opacity"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-spec-black via-spec-black/80 to-transparent" />
       </div>
       
-      <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-12 pt-10">
-        <div className="flex-1 space-y-8 text-center lg:text-left">
+      <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-10 py-16">
+        <div className="flex-1 space-y-6 md:space-y-8 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-spec-blue/20 text-blue-300 border border-spec-blue/30 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-spec-blue animate-pulse" />
-            <span className="text-sm font-semibold tracking-wide uppercase">Institution de Microfinance - Depuis 2002</span>
+            <span className="text-xs md:text-sm font-semibold tracking-wide uppercase">Institution de Microfinance — Depuis 2002</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight drop-shadow-lg">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight drop-shadow-lg">
             Construire <span className="text-spec-blue">l'Avenir</span><br />
             Ensemble
           </h1>
           
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-md">
-            La Structure de Promotion d'Épargne et de Crédit (SPEC OIC-Togo) s'engage à réduire la pauvreté en offrant des services financiers inclusifs, de l'épargne au crédit agricole.
+          <p className="text-base md:text-xl text-gray-200 max-w-xl mx-auto lg:mx-0 leading-relaxed drop-shadow-md">
+            La SPEC OIC-Togo s'engage à réduire la pauvreté en offrant des services financiers inclusifs, de l'épargne au crédit agricole.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-4">
-            <Link href="#services" className="px-8 py-4 bg-spec-blue text-white rounded-lg font-semibold shadow-lg shadow-spec-blue/25 hover:bg-spec-blue-dark transition-all flex items-center gap-2 group">
+          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+            <Link href="/services" className="w-full sm:w-auto px-7 py-4 bg-spec-blue text-white rounded-xl font-bold shadow-lg shadow-spec-blue/30 hover:bg-spec-blue-dark transition-all flex items-center justify-center gap-2 group">
               Découvrir nos services
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/contact" className="px-8 py-4 bg-white/10 text-white backdrop-blur-sm rounded-lg font-semibold hover:bg-white/20 transition-colors border border-white/20">
+            <Link href="/contact" className="w-full sm:w-auto px-7 py-4 bg-white/10 text-white backdrop-blur-sm rounded-xl font-semibold hover:bg-white/20 transition-colors border border-white/20 text-center">
               Nous contacter
             </Link>
           </div>

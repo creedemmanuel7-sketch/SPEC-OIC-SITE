@@ -5,8 +5,8 @@
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 
   /* ── SPEC OIC Brand Colors ───────────────────────── */
-  --color-spec-blue:       #3b82f6;
-  --color-spec-blue-dark:  #2563eb;
+  --color-spec-blue:       #2563eb;
+  --color-spec-blue-dark:  #1d4ed8;
   --color-spec-blue-light: #93c5fd;
   --color-spec-black:      #0f172a;
   --color-spec-dark:       #1e293b;
@@ -16,16 +16,18 @@
 }
 
 /* ── Light / Dark Variables ─────────────────────────── */
+/* Light mode (default) */
 :root {
-  --background: #ffffff;
+  --background: #f8fafc;
   --foreground: #0f172a;
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f172a;
-    --foreground: #f8fafc;
-  }
+/* Dark mode — triggered by next-themes adding .dark to <html> */
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  color-scheme: dark;
 }
 
 /* ── Base ───────────────────────────────────────────── */
@@ -34,14 +36,39 @@ html {
 }
 
 body {
-  background:  var(--background);
+  background: var(--background);
   color:       var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* ── Utility: section container ─────────────────────── */
 .container {
   max-width: 1200px;
   margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* ── Prose overrides for dark mode ──────────────────── */
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose strong {
+  color: #f1f5f9;
+}
+.dark .prose p,
+.dark .prose li {
+  color: #94a3b8;
+}
+
+/* ── Focus ring utility ──────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--color-spec-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Smooth scroll anchors (offset for fixed header) ── */
+[id] {
+  scroll-margin-top: 5rem;
 }
