@@ -1,0 +1,79 @@
+import { MapPin } from "lucide-react";
+
+const agencies = [
+  {
+    region: "Siège",
+    name: "Notsè",
+    district: "Haho",
+    guichets: ["Notsè", "Asrama", "Tado", "Carrefour (Nangbeto)"],
+    isHQ: true,
+  },
+  {
+    region: "Agence",
+    name: "Atakpamé",
+    district: "Ogou",
+    guichets: ["Atakpamé", "Wahala", "Agbélouvé"],
+    isHQ: false,
+  },
+  {
+    region: "Agence",
+    name: "Kpékplémé",
+    district: "Anié",
+    guichets: ["Kpékplémé", "Hahomégbé", "Akparè", "Gléi", "Tohoun", "Moréta (en construction)"],
+    isHQ: false,
+  },
+];
+
+export function Network() {
+  return (
+    <section id="reseau" className="py-24 bg-white dark:bg-spec-black">
+      <div className="container mx-auto px-6">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-spec-black dark:text-white">Notre Réseau</h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
+            3 agences et <span className="font-bold text-spec-blue">13 guichets</span> pour vous servir au plus près dans les régions des Plateaux et de la Centrale.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {agencies.map((agency, idx) => (
+            <div
+              key={idx}
+              className={`rounded-2xl p-8 border-2 transition-all hover:shadow-xl ${
+                agency.isHQ
+                  ? "bg-spec-blue text-white border-spec-blue shadow-lg shadow-spec-blue/20"
+                  : "bg-gray-50 dark:bg-spec-dark border-gray-100 dark:border-white/10"
+              }`}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${agency.isHQ ? "bg-white/20" : "bg-spec-blue/10"}`}>
+                  <MapPin className={`w-5 h-5 ${agency.isHQ ? "text-white" : "text-spec-blue"}`} />
+                </div>
+                <div>
+                  <p className={`text-xs font-bold uppercase tracking-widest ${agency.isHQ ? "text-blue-200" : "text-spec-blue"}`}>
+                    {agency.region} · {agency.district}
+                  </p>
+                  <h3 className={`text-xl font-bold ${agency.isHQ ? "text-white" : "text-spec-black dark:text-white"}`}>
+                    {agency.name}
+                  </h3>
+                </div>
+              </div>
+
+              <p className={`text-sm font-semibold uppercase tracking-wider mb-3 ${agency.isHQ ? "text-blue-200" : "text-gray-500"}`}>
+                {agency.guichets.length} guichet{agency.guichets.length > 1 ? "s" : ""}
+              </p>
+              <ul className="space-y-2">
+                {agency.guichets.map((g, i) => (
+                  <li key={i} className={`flex items-center gap-2 text-sm ${agency.isHQ ? "text-white/90" : "text-gray-600 dark:text-gray-400"}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${agency.isHQ ? "bg-white/60" : "bg-spec-blue/50"}`} />
+                    {g}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
