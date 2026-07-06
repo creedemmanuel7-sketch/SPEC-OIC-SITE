@@ -1,4 +1,7 @@
+"use client";
+
 import { Star, Quote } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const testimonials = [
   {
@@ -31,6 +34,31 @@ const testimonials = [
 ];
 
 export function Testimonials() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        
+        // Si le conteneur ne déborde pas (ex: sur desktop), on ne fait rien
+        if (scrollWidth <= clientWidth) return;
+
+        // Si on est à la fin du défilement, on revient au début
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          // Sinon on avance d'une carte
+          const card = scrollRef.current.children[0] as HTMLElement;
+          const cardWidth = card ? card.offsetWidth + 24 /* gap = 24px */ : clientWidth;
+          scrollRef.current.scrollBy({ left: cardWidth, behavior: "smooth" });
+        }
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-24 bg-white dark:bg-spec-black text-spec-black dark:text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5 dark:opacity-10" />
@@ -48,11 +76,14 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
+        <div 
+          ref={scrollRef}
+          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide"
+        >
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-7 flex flex-col min-w-[280px] sm:min-w-0 flex-shrink-0"
+              className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-7 flex flex-col w-[85vw] max-w-[320px] sm:w-auto sm:max-w-none flex-shrink-0 snap-center"
             >
               <Quote className="w-10 h-10 text-spec-blue/30 mb-4" />
 
@@ -64,7 +95,7 @@ export function Testimonials() {
               </div>
 
               {/* Quote text */}
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed flex-1 text-sm md:text-base">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed flex-1 text-sm md:text-base whitespace-normal">
                 &ldquo;{t.text}&rdquo;
               </p>
 
