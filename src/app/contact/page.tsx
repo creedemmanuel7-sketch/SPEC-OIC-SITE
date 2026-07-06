@@ -8,16 +8,31 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+    
+    try {
+      const response = await fetch("https://formspree.io/f/VOTRE_ID_FORMSPREE", {
+        method: "POST",
+        body: new FormData(e.currentTarget),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setIsSuccess(true);
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        alert("Erreur lors de l'envoi du message. Veuillez réessayer.");
+      }
+    } catch (error) {
+      alert("Erreur réseau. Veuillez vérifier votre connexion.");
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      // Reset form after 3 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+    }
   };
 
   return (
@@ -57,22 +72,22 @@ export default function ContactPage() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-gray-300">Nom complet</label>
-                  <input required type="text" id="name" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="Jean Dupont" />
+                  <input required type="text" name="name" id="name" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="Jean Dupont" />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm font-medium text-gray-700 dark:text-gray-300">Numéro de téléphone</label>
-                  <input required type="tel" id="phone" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="(+228) 00 00 00 00" />
+                  <input required type="tel" name="phone" id="phone" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="(+228) 00 00 00 00" />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-300">Adresse email</label>
-                <input required type="email" id="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="creedemmanuel7@gmail.com" />
+                <input required type="email" name="email" id="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white" placeholder="creedemmanuel7@gmail.com" />
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium text-gray-700 dark:text-gray-300">Sujet</label>
-                <select id="subject" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white">
+                <select id="subject" name="subject" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all dark:text-white">
                   <option value="credit">Demande de crédit</option>
                   <option value="epargne">Ouverture de compte / Épargne</option>
                   <option value="partenariat">Partenariat</option>
@@ -82,7 +97,7 @@ export default function ContactPage() {
 
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium text-gray-700 dark:text-gray-300">Votre message</label>
-                <textarea required id="message" rows={5} className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all resize-none dark:text-white" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                <textarea required id="message" name="message" rows={5} className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-dark/50 focus:ring-2 focus:ring-spec-blue focus:border-transparent outline-none transition-all resize-none dark:text-white" placeholder="Comment pouvons-nous vous aider ?"></textarea>
               </div>
 
               <button disabled={isSubmitting} type="submit" className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-spec-blue text-white font-bold text-lg hover:bg-blue-700 transition-colors shadow-xl shadow-spec-blue/30 disabled:opacity-70">
@@ -130,7 +145,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold mb-1">Horaires d'ouverture</p>
-                    <p className="text-gray-400 text-sm">Lundi au Vendredi<br/>07h00 - 12h00<br/>14h00 - 17h00</p>
+                    <p className="text-gray-400 text-sm">Lundi au Vendredi<br/>07h30 - 12h30<br/>14h30 - 17h30</p>
                   </div>
                 </li>
               </ul>

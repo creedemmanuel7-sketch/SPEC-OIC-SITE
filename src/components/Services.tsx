@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Services() {
   return (
-    <section id="services" className="py-24 bg-gray-50 dark:bg-spec-dark">
+    <section id="services" className="py-24 bg-white dark:bg-spec-black">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-spec-black dark:text-white">Nos Services Financiers</h2>
@@ -14,7 +14,7 @@ export function Services() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {/* Card 1: Épargne */}
-          <div className="bg-white dark:bg-spec-dark rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all group border border-gray-100 dark:border-white/5 relative overflow-hidden">
+          <div className="bg-white dark:bg-spec-dark rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:shadow-xl transition-all group border border-gray-100 dark:border-white/5 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
               <PiggyBank className="w-24 h-24 text-spec-blue" />
             </div>
@@ -31,7 +31,7 @@ export function Services() {
           </div>
 
           {/* Card 2: Crédit */}
-          <div className="bg-white dark:bg-spec-dark rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all group border border-gray-100 dark:border-white/5 relative overflow-hidden">
+          <div className="bg-white dark:bg-spec-dark rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:shadow-xl transition-all group border border-gray-100 dark:border-white/5 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
               <HandCoins className="w-24 h-24 text-spec-blue" />
             </div>
@@ -48,7 +48,7 @@ export function Services() {
           </div>
 
           {/* Card 3: Autres Services */}
-          <div className="bg-white dark:bg-spec-dark rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all group border border-gray-100 dark:border-white/5 relative overflow-hidden">
+          <div className="bg-white dark:bg-spec-dark rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none hover:shadow-xl transition-all group border border-gray-100 dark:border-white/5 relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
               <ShieldCheck className="w-24 h-24 text-spec-blue" />
             </div>
