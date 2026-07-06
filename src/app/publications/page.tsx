@@ -28,8 +28,8 @@ const documents = [
 export default function PublicationsPage() {
   return (
     <main className="min-h-screen pt-20">
-      <section className="bg-spec-black text-white py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-spec-blue/20 to-transparent pointer-events-none" />
+      <section className="bg-white dark:bg-spec-black text-spec-black dark:text-white py-16 md:py-24 relative overflow-hidden border-b border-gray-200 dark:border-white/10">
+        <div className="absolute inset-0 bg-gradient-to-r from-spec-blue/5 dark:from-spec-blue/20 to-transparent pointer-events-none" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <div className="w-16 h-16 bg-spec-blue/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -39,7 +39,7 @@ export default function PublicationsPage() {
               Transparence & <br/>
               <span className="text-spec-blue">Publications</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
               La confiance se bâtit par la clarté. Accédez à nos rapports financiers et nos textes réglementaires en toute transparence.
             </p>
           </div>

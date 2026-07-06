@@ -32,22 +32,19 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-spec-black text-white relative overflow-hidden">
-      {/* Ambient decorations */}
+    <section className="py-24 bg-white dark:bg-spec-black text-spec-black dark:text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5 dark:opacity-10" />
       <div className="absolute top-0 right-0 -mr-24 -mt-24 w-80 h-80 rounded-full border-[12px] border-spec-blue/10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-96 h-96 rounded-full border-[16px] border-spec-blue/10 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-spec-blue/20 text-blue-300 border border-spec-blue/30 text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-spec-blue/20 text-spec-blue dark:text-blue-300 border border-spec-blue/30 text-sm font-semibold mb-4">
             Témoignages membres
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ce que disent nos membres</h2>
-          <p className="text-gray-400 text-lg">
-            Des milliers de Togolais nous font confiance pour bâtir leur avenir.
-          </p>
-          <p className="text-xs text-gray-600 mt-3 italic">
-            * Noms et prénoms rendus anonymes pour respecter la vie privée des membres.
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ils Nous Font <span className="text-spec-blue">Confiance</span></h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl">
+            Découvrez comment la SPEC OIC-Togo accompagne le développement de ses membres.
           </p>
         </div>
 
@@ -55,30 +52,30 @@ export function Testimonials() {
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col gap-6 hover:bg-white/10 sm:hover:-translate-y-1 transition-all duration-300 relative shrink-0 w-[85vw] sm:w-auto snap-center"
+              className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl p-7 flex flex-col min-w-[280px] sm:min-w-0 flex-shrink-0"
             >
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-spec-blue/15" />
+              <Quote className="w-10 h-10 text-spec-blue/30 mb-4" />
 
               {/* Stars */}
-              <div className="flex gap-1">
+              <div className="flex gap-1 mb-4">
                 {[...Array(t.stars)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
 
               {/* Quote text */}
-              <p className="text-gray-300 leading-relaxed flex-1 text-sm md:text-base">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed flex-1 text-sm md:text-base">
                 &ldquo;{t.text}&rdquo;
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-white/10">
                 <div className={`w-10 h-10 rounded-full ${t.color} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
                   {t.initials}
                 </div>
                 <div>
-                  <p className="font-bold text-white text-sm">{t.name}</p>
-                  <p className="text-spec-blue-light text-xs">{t.role} · {t.location}</p>
+                  <p className="font-bold text-spec-black dark:text-white text-sm">{t.name}</p>
+                  <p className="text-spec-blue dark:text-spec-blue-light text-xs">{t.role} · {t.location}</p>
                 </div>
               </div>
             </div>

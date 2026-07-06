@@ -7,6 +7,7 @@ const agencies = [
     district: "Haho",
     guichets: ["Notsè", "Asrama", "Tado", "Carrefour (Nangbeto)"],
     isHQ: true,
+    phone: "(+228) 70 44 70 12", // TODO: Remplacer par le vrai numéro
   },
   {
     region: "Agence",
@@ -14,6 +15,7 @@ const agencies = [
     district: "Ogou",
     guichets: ["Atakpamé", "Wahala", "Agbélouvé"],
     isHQ: false,
+    phone: "(+228) XX XX XX XX", // TODO: Remplacer
   },
   {
     region: "Agence",
@@ -21,6 +23,7 @@ const agencies = [
     district: "Anié",
     guichets: ["Kpékplémé", "Hahomégbé", "Akparè", "Gléi", "Tohoun", "Moréta (en construction)"],
     isHQ: false,
+    phone: "(+228) XX XX XX XX", // TODO: Remplacer
   },
 ];
 
@@ -57,6 +60,10 @@ export function Network() {
                     {agency.name}
                   </h3>
                 </div>
+              </div>
+
+              <div className={`mb-4 flex items-center gap-2 text-sm font-medium ${agency.isHQ ? "text-white" : "text-gray-700 dark:text-gray-300"}`}>
+                <span>📞</span> {agency.phone}
               </div>
 
               <p className={`text-sm font-semibold uppercase tracking-wider mb-3 ${agency.isHQ ? "text-blue-200" : "text-gray-500"}`}>

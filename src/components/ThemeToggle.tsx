@@ -25,9 +25,9 @@ export function ThemeToggle() {
       aria-label="Changer le thème"
     >
       {isDark ? (
-        <Sun className="h-5 w-5 text-white" />
+        <Moon className="h-5 w-5 text-white" />
       ) : (
-        <Moon className="h-5 w-5 text-spec-black" />
+        <Sun className="h-5 w-5 text-spec-black" />
       )}
     </button>
   );
