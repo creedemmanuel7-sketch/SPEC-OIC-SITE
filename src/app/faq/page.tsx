@@ -32,10 +32,14 @@ const faqs = [
 export default function FAQPage() {
   return (
     <>
-      <div className="bg-white dark:bg-spec-black pt-20 pb-20 border-b border-gray-200 dark:border-white/10">
-        <div className="container mx-auto px-6 text-center text-spec-black dark:text-white">
+      <div className="bg-spec-black pt-20 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-spec-blue/10 to-transparent pointer-events-none" />
+        <div className="container mx-auto px-6 text-center text-white relative z-10">
+          <div className="w-16 h-16 bg-spec-blue/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <HelpCircle className="w-8 h-8 text-spec-blue" />
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Foire Aux Questions</h1>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
             Retrouvez ici les réponses aux questions les plus fréquentes sur nos services, 
             le fonctionnement de la coopérative et les conditions d'adhésion.
           </p>

@@ -39,8 +39,8 @@ export default function DemandePretPage() {
   return (
     <main className="min-h-screen pt-20 bg-gray-50 dark:bg-spec-black pb-24">
       {/* Header Section */}
-      <section className="bg-spec-blue text-white py-12 md:py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/hero_agriculture.png')] bg-cover bg-center opacity-20 mix-blend-overlay" />
+      <section className="bg-spec-black text-white py-12 md:py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/hero_agriculture.png')] bg-cover bg-center opacity-40 mix-blend-overlay" />
         <div className="container mx-auto px-6 relative z-10 text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4">Demande de Crédit</h1>
           <p className="text-blue-100 max-w-2xl mx-auto text-lg">

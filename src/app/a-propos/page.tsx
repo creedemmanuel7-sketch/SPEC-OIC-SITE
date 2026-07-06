@@ -9,14 +9,14 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <div className="bg-white dark:bg-spec-black py-24 border-b border-gray-200 dark:border-white/10 relative overflow-hidden">
+      <div className="bg-spec-black py-24 border-b border-white/10 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/team_meeting.png" alt="Equipe" className="w-full h-full object-cover opacity-10 dark:opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-spec-black to-transparent" />
+          <img src="/team_meeting.png" alt="Equipe" className="w-full h-full object-cover opacity-30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-spec-black to-transparent" />
         </div>
-        <div className="container mx-auto px-6 text-center relative z-10 text-spec-black dark:text-white">
+        <div className="container mx-auto px-6 text-center relative z-10 text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Notre Institution</h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Plus de deux décennies d'engagement pour l'inclusion financière au Togo. De notre héritage avec l'OIC jusqu'à notre transition en coopérative prévue pour 2027.
           </p>
         </div>

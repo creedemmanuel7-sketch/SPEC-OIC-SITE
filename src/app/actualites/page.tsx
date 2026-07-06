@@ -40,15 +40,15 @@ const articles = [
 export default function ActualitesPage() {
   return (
     <main className="min-h-screen pt-20">
-      <section className="bg-white dark:bg-spec-black text-spec-black dark:text-white py-16 md:py-24 relative overflow-hidden border-b border-gray-200 dark:border-white/10">
-        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5 dark:opacity-10" />
+      <section className="bg-spec-black text-white py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">
               Actualités & <br/>
               <span className="text-spec-blue">Éducation Financière</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
               Suivez les dernières nouvelles de la SPEC OIC-Togo, nos conseils de gestion financière, et l'impact de nos actions sur le terrain.
             </p>
           </div>
