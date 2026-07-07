@@ -12,32 +12,35 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-spec-black/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo-icon.png" alt="SPEC OIC-Togo Logo" width={40} height={40} className="w-10 h-10 object-contain" />
-          <span className="text-xl font-bold text-spec-black dark:text-white tracking-tight">SPEC OIC-Togo</span>
+        <Link href="/" className="flex items-center gap-3 relative">
+          {/* Logo plus grand, déborde légèrement si nécessaire pour l'effet visuel */}
+          <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
+            <Image src="/logo-icon.png" alt="SPEC OIC-Togo Logo" fill className="object-contain" />
+          </div>
+          <span className="text-2xl md:text-3xl font-extrabold text-spec-black dark:text-white tracking-tight">SPEC OIC-Togo</span>
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/services" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-spec-blue dark:hover:text-spec-blue transition-colors">
-            Services
+          <Link href="/produits" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-spec-blue dark:hover:text-spec-blue transition-colors">
+            Produits
           </Link>
-          <Link href="/a-propos" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-spec-blue dark:hover:text-spec-blue transition-colors">
-            À Propos
+          <Link href="/tarifs" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-spec-blue dark:hover:text-spec-blue transition-colors">
+            Tarifs
           </Link>
-          <Link href="/reseau" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-spec-blue dark:hover:text-spec-blue transition-colors">
-            Notre Réseau
+          <Link href="/gouvernance" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-spec-blue dark:hover:text-spec-blue transition-colors">
+            Gouvernance
           </Link>
-          <Link href="/actualites" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-spec-blue dark:hover:text-spec-blue transition-colors">
-            Actualités
+          <Link href="/carrieres" className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-spec-blue dark:hover:text-spec-blue transition-colors">
+            Carrières
           </Link>
           <div className="w-px h-6 bg-gray-200 dark:bg-white/10 mx-2" />
           <ThemeToggle />
           <Link href="/espace-client" className="px-5 py-2.5 rounded-full bg-spec-blue/10 text-spec-blue text-sm font-bold hover:bg-spec-blue/20 transition-colors">
             Mon Espace
           </Link>
-          <Link href="/contact" className="px-5 py-2.5 rounded-full bg-spec-blue text-white text-sm font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-spec-blue/30">
-            Nous Contacter
+          <Link href="/ouvrir-compte" className="px-5 py-2.5 rounded-full bg-spec-blue text-white text-sm font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-spec-blue/30">
+            Ouvrir un Compte
           </Link>
         </nav>
 
@@ -56,16 +59,17 @@ export function Header() {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-spec-black border-b border-gray-200 dark:border-white/10 shadow-xl p-6 flex flex-col gap-4">
-          <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Services</Link>
-          <Link href="/a-propos" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">À Propos</Link>
-          <Link href="/reseau" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Notre Réseau</Link>
-          <Link href="/actualites" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Actualités</Link>
+          <Link href="/produits" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Produits</Link>
+          <Link href="/tarifs" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Tarifs</Link>
+          <Link href="/gouvernance" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Gouvernance</Link>
+          <Link href="/carrieres" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Carrières</Link>
+          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-spec-black dark:text-white">Nous Contacter</Link>
           <hr className="border-gray-200 dark:border-white/10 my-2" />
           <Link href="/espace-client" onClick={() => setIsMobileMenuOpen(false)} className="px-5 py-3 text-center rounded-xl bg-spec-blue/10 text-spec-blue font-bold">
             Mon Espace
           </Link>
-          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="px-5 py-3 text-center rounded-xl bg-spec-blue text-white font-bold">
-            Nous Contacter
+          <Link href="/ouvrir-compte" onClick={() => setIsMobileMenuOpen(false)} className="px-5 py-3 text-center rounded-xl bg-spec-blue text-white font-bold">
+            Ouvrir un Compte
           </Link>
         </div>
       )}

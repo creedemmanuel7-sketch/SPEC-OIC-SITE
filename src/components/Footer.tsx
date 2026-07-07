@@ -3,16 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "/services", label: "Nos Services" },
-  { href: "/simulateur", label: "Simulateur de Crédit" },
-  { href: "/demande-de-pret", label: "Demande de Prêt" },
-  { href: "/actualites", label: "Actualités" },
-  { href: "/a-propos", label: "À Propos" },
-  { href: "/reseau", label: "Notre Réseau" },
-  { href: "/publications", label: "Transparence & Publications" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/", label: "Accueil" },
+  { href: "/produits", label: "Produits & Services" },
+  { href: "/tarifs", label: "Grille Tarifaire" },
+  { href: "/gouvernance", label: "Gouvernance" },
+  { href: "/carrieres", label: "Carrières" },
   { href: "/contact", label: "Contact" },
-  { href: "/mentions-legales", label: "Mentions Légales" },
 ];
 
 export function Footer() {
@@ -32,6 +28,14 @@ export function Footer() {
             <p className="text-gray-600 dark:text-gray-400 max-w-sm text-sm leading-relaxed">
               Structure de Promotion d'Épargne et de Crédit, née de l'OIC-Togo (programme PARAT). Au service de l'inclusion financière au Togo depuis le 17 octobre 2002.
             </p>
+            <div className="bg-spec-blue/10 border border-spec-blue/20 dark:border-spec-blue/30 rounded-lg p-3 inline-block">
+              <p className="text-spec-blue dark:text-spec-blue-light text-xs font-bold uppercase tracking-wider">
+                Institution Agréée
+              </p>
+              <p className="text-gray-700 dark:text-gray-300 text-xs font-medium mt-1">
+                Agréée par le Ministère de l'Économie et des Finances sous le N° T/0123/2002
+              </p>
+            </div>
             <div className="text-xs text-gray-500 space-y-1 font-medium">
               <p>Tutelle : Ministère des Finances & BCEAO</p>
               <p>Membre de : APSFD Togo</p>

@@ -57,28 +57,15 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="py-24 bg-white dark:bg-spec-black">
         <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-spec-black dark:text-white">Notre Équipe Dirigeante</h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg">
-              Une gouvernance solide et expérimentée, au service de l'inclusion financière.
+            <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
+              Une gouvernance solide et expérimentée, au service de l'inclusion financière. Découvrez les femmes et les hommes qui pilotent la SPEC OIC-Togo au quotidien.
             </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { name: "Jean Koffi", role: "Directeur Général", init: "JK" },
-              { name: "Afiwa Mensah", role: "Directrice des Opérations", init: "AM" },
-              { name: "Kodjo Agbéko", role: "Responsable Crédit", init: "KA" },
-              { name: "Yawa Kpohou", role: "Responsable Financier", init: "YK" }
-            ].map((member, idx) => (
-              <div key={idx} className="bg-gray-50 dark:bg-spec-dark rounded-2xl p-6 text-center border border-gray-100 dark:border-white/5 hover:-translate-y-2 transition-transform duration-300">
-                <div className="w-24 h-24 rounded-full bg-spec-blue/10 flex items-center justify-center mx-auto mb-4 border-4 border-white dark:border-spec-black shadow-lg">
-                  <span className="text-2xl font-bold text-spec-blue">{member.init}</span>
-                </div>
-                <h3 className="text-lg font-bold text-spec-black dark:text-white">{member.name}</h3>
-                <p className="text-sm text-spec-blue font-medium mt-1">{member.role}</p>
-              </div>
-            ))}
+            <a href="/gouvernance" className="inline-flex items-center gap-2 px-8 py-4 bg-spec-blue text-white rounded-xl font-bold shadow-lg shadow-spec-blue/30 hover:bg-spec-blue-dark transition-all">
+              Découvrir notre équipe de Direction
+              <span className="text-xl">→</span>
+            </a>
           </div>
         </div>
       </section>
