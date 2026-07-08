@@ -83,17 +83,26 @@ export default async function RootLayout({
         <meta name="msapplication-tap-highlight" content="no" />
         <link rel="apple-touch-icon" href="/icons/icon-152x152.png" />
         <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var savedTheme = localStorage.getItem("theme");
+                if (savedTheme === "dark" || (savedTheme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                  document.documentElement.classList.add("dark");
+                } else {
+                  document.documentElement.classList.remove("dark");
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
       </head>
       <body
         className={`${outfit.variable} font-sans antialiased bg-background text-foreground flex flex-col min-h-screen`}
         suppressHydrationWarning
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <Header />
             <main className="flex-1 pt-20">{children}</main>
@@ -101,6 +110,7 @@ export default async function RootLayout({
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
+
     </html>
   );
 }

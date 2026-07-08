@@ -2,10 +2,10 @@
 
 import * as React from "react";
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useTheme } from "./ThemeProvider";
 
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme, systemTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -16,6 +16,7 @@ export function ThemeToggle() {
     return <div className="w-9 h-9" />; // Placeholder to avoid layout shift
   }
 
+  const resolvedTheme = theme === "system" ? systemTheme : theme;
   const isDark = resolvedTheme === "dark";
 
   return (
