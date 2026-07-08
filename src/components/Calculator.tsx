@@ -2,21 +2,22 @@
 
 import { useState } from "react";
 import { Calculator as CalcIcon, PiggyBank, HandCoins, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export function Calculator() {
+  const t = useTranslations("Calculator");
   const [mode, setMode] = useState<"credit" | "epargne">("credit");
   const [amount, setAmount] = useState<number>(500000);
-  const [duration, setDuration] = useState<number>(12); // en mois
-  const [interestRate, setInterestRate] = useState<number>(2); // taux mensuel fictif de 2%
+  const [duration, setDuration] = useState<number>(12);
+  const [interestRate, setInterestRate] = useState<number>(2);
 
-  // Simulation basique
   const monthlyPayment = mode === "credit" 
     ? (amount + (amount * (interestRate / 100) * duration)) / duration 
     : 0;
 
   const totalSaved = mode === "epargne"
-    ? amount * duration // Épargne simple: dépôt fixe mensuel
+    ? amount * duration
     : 0;
 
   return (
@@ -28,10 +29,10 @@ export function Calculator() {
               <CalcIcon className="w-10 h-10" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-spec-black dark:text-white">
-              Simulez votre projet
+              {t("sectionTitle")}
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg">
-              Estimez vos remboursements de crédit ou calculez vos revenus d'épargne en quelques clics.
+              {t("sectionDesc")}
             </p>
           </div>
 
@@ -42,13 +43,13 @@ export function Calculator() {
                 onClick={() => setMode("credit")}
                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg font-semibold text-sm transition-all ${mode === "credit" ? "bg-white dark:bg-spec-dark text-spec-blue shadow-md" : "text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"}`}
               >
-                <HandCoins className="w-4 h-4" /> Crédit
+                <HandCoins className="w-4 h-4" /> {t("tabCredit")}
               </button>
               <button
                 onClick={() => setMode("epargne")}
                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg font-semibold text-sm transition-all ${mode === "epargne" ? "bg-white dark:bg-spec-dark text-spec-blue shadow-md" : "text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"}`}
               >
-                <PiggyBank className="w-4 h-4" /> Épargne
+                <PiggyBank className="w-4 h-4" /> {t("tabSavings")}
               </button>
             </div>
 
@@ -57,7 +58,7 @@ export function Calculator() {
               <div className="space-y-8">
                 <div>
                   <label className="flex justify-between font-semibold text-spec-black dark:text-white mb-4">
-                    <span>{mode === "credit" ? "Montant emprunté" : "Dépôt mensuel"}</span>
+                    <span>{mode === "credit" ? t("amountBorrow") : t("monthlyDeposit")}</span>
                     <span className="text-spec-blue">{amount.toLocaleString()} FCFA</span>
                   </label>
                   <input
@@ -77,8 +78,8 @@ export function Calculator() {
 
                 <div>
                   <label className="flex justify-between font-semibold text-spec-black dark:text-white mb-4">
-                    <span>Durée</span>
-                    <span className="text-spec-blue">{duration} Mois</span>
+                    <span>{t("duration")}</span>
+                    <span className="text-spec-blue">{duration} {t("months")}</span>
                   </label>
                   <input
                     type="range"
@@ -90,8 +91,8 @@ export function Calculator() {
                     className="w-full h-2 bg-gray-200 dark:bg-white/10 rounded-lg appearance-none cursor-pointer accent-spec-blue"
                   />
                   <div className="flex justify-between text-xs text-gray-400 mt-2">
-                    <span>1 Mois</span>
-                    <span>36 Mois</span>
+                    <span>1 {t("months")}</span>
+                    <span>36 {t("months")}</span>
                   </div>
                 </div>
               </div>
@@ -102,7 +103,7 @@ export function Calculator() {
                   <CalcIcon className="w-32 h-32" />
                 </div>
                 <h3 className="text-blue-100 font-medium mb-2 text-center relative z-10">
-                  {mode === "credit" ? "Mensualité estimée" : "Capital projeté"}
+                  {mode === "credit" ? t("estimatedMonthly") : t("projectedCapital")}
                 </h3>
                 <div className="text-4xl md:text-5xl font-extrabold text-center mb-6 drop-shadow-md relative z-10">
                   {mode === "credit" 
@@ -115,23 +116,23 @@ export function Calculator() {
                   {mode === "credit" ? (
                     <>
                       <div className="flex justify-between">
-                        <span>Taux d'intérêt estimé:</span>
-                        <span className="font-semibold text-white">{interestRate}% / mois</span>
+                        <span>{t("estimatedRate")}</span>
+                        <span className="font-semibold text-white">{interestRate}% / {t("month")}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Total à rembourser:</span>
+                        <span>{t("totalToRepay")}</span>
                         <span className="font-semibold text-white">{Math.round(monthlyPayment * duration).toLocaleString()} FCFA</span>
                       </div>
                     </>
                   ) : (
                     <>
                       <div className="flex justify-between">
-                        <span>Dépôts totaux:</span>
+                        <span>{t("totalDeposits")}</span>
                         <span className="font-semibold text-white">{Math.round(totalSaved).toLocaleString()} FCFA</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Durée de l'épargne:</span>
-                        <span className="font-semibold text-white">{duration} mois</span>
+                        <span>{t("savingsDuration")}</span>
+                        <span className="font-semibold text-white">{duration} {t("month")}</span>
                       </div>
                     </>
                   )}
@@ -141,12 +142,12 @@ export function Calculator() {
                   href={mode === "credit" ? "/demande-de-pret" : "/contact"}
                   className="w-full py-4 bg-white text-spec-blue rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors group relative z-10"
                 >
-                  {mode === "credit" ? "Demander ce crédit" : "Ouvrir un compte"}
+                  {mode === "credit" ? t("requestCredit") : t("openAccount")}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 
                 <p className="text-[10px] text-center mt-4 text-blue-200/60 leading-tight relative z-10">
-                  * Simulation à titre indicatif. Les conditions réelles peuvent varier.
+                  {t("disclaimer")}
                 </p>
               </div>
             </div>

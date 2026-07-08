@@ -1,12 +1,10 @@
 import { LockKeyhole, Smartphone, ShieldCheck, ArrowLeft } from "lucide-react";
-import Link from "next/link";
-
-export const metadata = {
-  title: "Espace Client - SPEC OIC-Togo",
-  description: "Connectez-vous à votre espace client SPEC OIC-Togo pour gérer vos comptes et suivre vos transactions.",
-};
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export default function EspaceClientPage() {
+  const t = useTranslations("EspaceClient");
+
   return (
     <main className="min-h-screen pt-20 bg-gray-50 dark:bg-spec-black flex items-center justify-center p-6">
       <div className="max-w-md w-full bg-white dark:bg-spec-dark rounded-3xl p-8 shadow-2xl shadow-spec-blue/5 border border-gray-100 dark:border-white/5 relative overflow-hidden">
@@ -17,7 +15,7 @@ export default function EspaceClientPage() {
         <div className="relative z-10">
           <Link href="/" className="inline-flex items-center text-sm text-gray-500 hover:text-spec-blue transition-colors mb-8 group">
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-            Retour à l'accueil
+            {t("backHome")}
           </Link>
 
           <div className="w-16 h-16 bg-spec-blue/10 rounded-2xl flex items-center justify-center mb-6 mx-auto">
@@ -25,10 +23,10 @@ export default function EspaceClientPage() {
           </div>
 
           <h1 className="text-2xl font-bold text-center text-spec-black dark:text-white mb-2">
-            Espace Membre
+            {t("title")}
           </h1>
           <p className="text-center text-gray-600 dark:text-gray-400 text-sm mb-8">
-            Connectez-vous pour gérer votre épargne et suivre vos crédits.
+            {t("desc")}
           </p>
 
           <form className="space-y-4 mb-8 relative">
@@ -41,34 +39,34 @@ export default function EspaceClientPage() {
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-spec-blue"></span>
                   </span>
                 </div>
-                <h3 className="text-sm font-bold text-spec-blue mb-1">Bientôt disponible</h3>
-                <p className="text-xs text-gray-600 dark:text-gray-300">Notre nouveau portail de digitalisation est en cours de déploiement.</p>
+                <h3 className="text-sm font-bold text-spec-blue mb-1">{t("comingSoon")}</h3>
+                <p className="text-xs text-gray-600 dark:text-gray-300">{t("deployDesc")}</p>
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Identifiant</label>
-              <input disabled type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50" placeholder="Votre numéro de membre" />
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t("idLabel")}</label>
+              <input disabled type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50" placeholder={t("idPlaceholder")} />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mot de passe</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t("passLabel")}</label>
               <input disabled type="password" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50" placeholder="••••••••" />
             </div>
             <button disabled className="w-full py-3 bg-spec-blue text-white rounded-xl font-bold opacity-50 cursor-not-allowed">
-              Se connecter
+              {t("loginBtn")}
             </button>
           </form>
 
           <div className="pt-6 border-t border-gray-100 dark:border-white/10">
-            <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-4 text-center">Nos futurs services en ligne</h4>
+            <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-4 text-center">{t("futureServices")}</h4>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col items-center text-center p-3 rounded-lg bg-gray-50 dark:bg-spec-black/30">
                 <Smartphone className="w-5 h-5 text-spec-blue mb-2" />
-                <span className="text-xs text-gray-600 dark:text-gray-400">Mobile Money</span>
+                <span className="text-xs text-gray-600 dark:text-gray-400">{t("mobileMoney")}</span>
               </div>
               <div className="flex flex-col items-center text-center p-3 rounded-lg bg-gray-50 dark:bg-spec-black/30">
                 <ShieldCheck className="w-5 h-5 text-spec-blue mb-2" />
-                <span className="text-xs text-gray-600 dark:text-gray-400">100% Sécurisé</span>
+                <span className="text-xs text-gray-600 dark:text-gray-400">{t("secure")}</span>
               </div>
             </div>
           </div>
