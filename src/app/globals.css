@@ -81,3 +81,27 @@ body {
 [id] {
   scroll-margin-top: 5rem;
 }
+
+/* ── Native select dark mode fix ───────────────────────
+   Browsers don't inherit CSS vars on <option> — must force
+   explicit color/background so choices are visible in dark. */
+.dark select {
+  background-color: #1e293b;  /* spec-dark */
+  color: #f1f5f9;
+  border-color: rgba(255,255,255,0.1);
+}
+
+.dark select option {
+  background-color: #1e293b;
+  color: #f1f5f9;
+}
+
+.dark select option:disabled {
+  color: #64748b; /* slate-500 */
+}
+
+.dark select option:checked,
+.dark select option:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}

@@ -1,5 +1,5 @@
-import type { NextConfig } from "next";
-import withPWAInit from "@ducanh2912/next-pwa";
+const withPWAInit = require("@ducanh2912/next-pwa").default;
+const createNextIntlPlugin = require('next-intl/plugin');
 
 const withPWA = withPWAInit({
   dest: "public",
@@ -9,7 +9,6 @@ const withPWA = withPWAInit({
   disable: process.env.NODE_ENV === "development",
   workboxOptions: {
     disableDevLogs: true,
-    // Stratégie de cache pour les pages statiques (disponibles offline)
     runtimeCaching: [
       // Pages statiques disponibles hors-ligne
       {
@@ -63,9 +62,11 @@ const withPWA = withPWAInit({
   },
 });
 
-const nextConfig: NextConfig = {
+const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   // Force Webpack (requis pour next-pwa — incompatible avec Turbopack)
-  turbopack: {},
 };
 
-export default withPWA(nextConfig);
+module.exports = withNextIntl(withPWA(nextConfig));

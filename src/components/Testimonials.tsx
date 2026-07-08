@@ -2,39 +2,42 @@
 
 import { Star, Quote } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 
-const testimonials = [
+const getTestimonials = (t: any) => [
   {
     name: "Afiwa Mensah",
-    role: "Commerçante",
+    role: t("role1"),
     location: "Notsè",
     initials: "AM",
     color: "bg-blue-500",
-    text: "Grâce au crédit commercial de la SPEC OIC-Togo, j'ai pu tripler le stock de ma boutique en moins de deux ans. Leur accompagnement m'a permis de mieux gérer mes finances et de développer mon activité.",
+    text: t("quote1"),
     stars: 5,
   },
   {
     name: "Kossi Agbéko",
-    role: "Agriculteur",
+    role: t("role2"),
     location: "Kpékplémé",
     initials: "KA",
     color: "bg-green-600",
-    text: "Le crédit agricole et l'accompagnement de la SPEC ont transformé mon exploitation. Aujourd'hui, je produis plus et je sécurise les revenus de ma famille pour l'année entière.",
+    text: t("quote2"),
     stars: 5,
   },
   {
     name: "Yawa Kpohou",
-    role: "Artisane couturière",
+    role: t("role3"),
     location: "Atakpamé",
     initials: "YK",
     color: "bg-purple-600",
-    text: "J'ai commencé avec une petite épargne de 5 000 FCFA. La confiance que la SPEC m'a accordée m'a permis d'ouvrir mon propre atelier de couture et d'employer deux apprenties.",
+    text: t("quote3"),
     stars: 5,
   },
 ];
 
 export function Testimonials() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("Testimonials");
+  const testimonials = getTestimonials(t);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,11 +71,15 @@ export function Testimonials() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-spec-blue/20 text-spec-blue dark:text-blue-300 border border-spec-blue/30 text-sm font-semibold mb-4">
-            Témoignages membres
+            {t("tag")}
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ils Nous Font <span className="text-spec-blue">Confiance</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            {t.rich("title", {
+              blue: (chunks) => <span className="text-spec-blue">{chunks}</span>
+            })}
+          </h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl">
-            Découvrez comment la SPEC OIC-Togo accompagne le développement de ses membres.
+            {t("desc")}
           </p>
         </div>
 

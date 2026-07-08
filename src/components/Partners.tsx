@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const partners = [
   { name: "Orabank", logo: "/partners/orabank.png" },
@@ -8,6 +9,7 @@ const partners = [
 ];
 
 export function Partners() {
+  const t = useTranslations("Partners");
   // Dupliquer le tableau pour l'effet de boucle infinie
   const duplicatedPartners = [...partners, ...partners];
 
@@ -15,7 +17,7 @@ export function Partners() {
     <section className="py-12 bg-gray-50 dark:bg-white/[0.02] border-b border-gray-200 dark:border-white/5 overflow-hidden">
       <div className="container mx-auto px-6 mb-8 text-center">
         <h3 className="text-sm font-bold tracking-widest uppercase text-gray-400 dark:text-gray-500">
-          Nos partenaires institutionnels et financiers
+          {t("title")}
         </h3>
       </div>
       

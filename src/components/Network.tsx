@@ -1,8 +1,9 @@
 import { MapPin } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const agencies = [
+const getAgencies = (t: any) => [
   {
-    region: "Siège",
+    region: t("hq"),
     name: "Notsè",
     district: "Haho",
     guichets: ["Notsè", "Asrama", "Tado", "Carrefour (Nangbeto)"],
@@ -10,7 +11,7 @@ const agencies = [
     phone: "(+228) 70 44 70 12", // TODO: Remplacer par le vrai numéro
   },
   {
-    region: "Agence",
+    region: t("agency"),
     name: "Atakpamé",
     district: "Ogou",
     guichets: ["Atakpamé", "Wahala", "Agbélouvé"],
@@ -18,23 +19,28 @@ const agencies = [
     phone: "(+228) XX XX XX XX", // TODO: Remplacer
   },
   {
-    region: "Agence",
+    region: t("agency"),
     name: "Kpékplémé",
     district: "Anié",
-    guichets: ["Kpékplémé", "Hahomégbé", "Akparè", "Gléi", "Tohoun", "Moréta (en construction)"],
+    guichets: ["Kpékplémé", "Hahomégbé", "Akparè", "Gléi", "Tohoun", `Moréta (${t("underConstruction")})`],
     isHQ: false,
     phone: "(+228) XX XX XX XX", // TODO: Remplacer
   },
 ];
 
 export function Network() {
+  const t = useTranslations("Network");
+  const agencies = getAgencies(t);
+
   return (
     <section id="reseau" className="py-24 bg-white dark:bg-spec-black">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-spec-black dark:text-white">Notre Réseau</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-spec-black dark:text-white">{t("title")}</h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg">
-            3 agences et <span className="font-bold text-spec-blue">13 guichets</span> pour vous servir au plus près dans les régions des Plateaux et de la Centrale.
+            {t.rich("desc", {
+              strong: (chunks) => <strong className="font-bold text-spec-blue">{chunks}</strong>
+            })}
           </p>
         </div>
 
@@ -67,7 +73,7 @@ export function Network() {
               </div>
 
               <p className={`text-sm font-semibold uppercase tracking-wider mb-3 ${agency.isHQ ? "text-blue-200" : "text-gray-500"}`}>
-                {agency.guichets.length} guichet{agency.guichets.length > 1 ? "s" : ""}
+                {agency.guichets.length} {t("guichets")}
               </p>
               <ul className="space-y-2">
                 {agency.guichets.map((g, i) => (

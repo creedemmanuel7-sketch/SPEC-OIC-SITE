@@ -1,7 +1,9 @@
 import { CheckCircle2, TrendingUp, Users, ExternalLink, Milestone, Target } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export function About() {
+  const t = useTranslations("About");
   return (
     <section id="about" className="py-24 bg-white dark:bg-spec-black overflow-hidden">
       <div className="container mx-auto px-6">
@@ -11,28 +13,28 @@ export function About() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-spec-blue/10 text-spec-blue border border-spec-blue/20 text-sm font-semibold tracking-wide uppercase">
               Notre Histoire
             </div>
-            <h2 className="text-4xl font-bold text-spec-black dark:text-white">De PARAT à la SPEC OIC-Togo</h2>
+            <h2 className="text-4xl font-bold text-spec-black dark:text-white">{t("title")}</h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-              La SPEC OIC-Togo est fière d'être la fille de l'OIC-Togo (Opportunities Industrialization Center). À l'origine, le département de l'agriculture américain avait créé le programme PARAT (Programme de Revenu de l'Agriculteur Togolais) au sein de l'OIC.
+              {t("desc1")}
             </p>
             <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-              Pour pérenniser ces actions, une partie des financements a servi de fonds de dotation pour créer la Structure de Promotion d'Épargne et de Crédit. Après une phase de lancement et de formation via OEDIS en mai 2001, la SPEC a officiellement démarré ses propres activités de manière indépendante le <span className="font-bold text-spec-blue">17 octobre 2002</span>.
+              {t.rich("desc2", {
+                strong: (chunks) => <span className="font-bold text-spec-blue">{chunks}</span>
+              })}
             </p>
 
             <div className="grid grid-cols-2 gap-6 pt-6">
               <div className="border-l-4 border-spec-blue pl-4">
                 <div className="flex items-center gap-2 text-xl font-bold text-spec-black dark:text-white mb-1">
                   <Milestone className="w-5 h-5 text-spec-blue" />
-                  2027
+                  {t("list1")}
                 </div>
-                <div className="text-sm text-gray-500 font-medium leading-snug">Migration prévue vers le statut de coopérative selon la nouvelle loi togolaise</div>
               </div>
               <div className="border-l-4 border-spec-blue pl-4">
                 <div className="flex items-center gap-2 text-xl font-bold text-spec-black dark:text-white mb-1">
                   <Target className="w-5 h-5 text-spec-blue" />
-                  13 Guichets
+                  {t("list2")}
                 </div>
-                <div className="text-sm text-gray-500 font-medium leading-snug">Notsè, Atakpamé, Wahala, Tohoun... et un 14e en construction !</div>
               </div>
             </div>
           </div>
@@ -44,6 +46,7 @@ export function About() {
                 src="/team_meeting.png" 
                 alt="SPEC OIC-Togo Équipe" 
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
@@ -55,3 +58,4 @@ export function About() {
     </section>
   );
 }
+

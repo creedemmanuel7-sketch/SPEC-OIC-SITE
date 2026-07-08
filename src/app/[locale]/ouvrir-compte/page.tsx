@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { CheckCircle2, Send, FileText, UserPlus } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function OuvrirComptePage() {
+  const t = useTranslations("OpenAccount");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -30,7 +32,7 @@ export default function OuvrirComptePage() {
         alert("Une erreur s'est produite. Veuillez réessayer.");
       }
     } catch (error) {
-      alert("Erreur de connexion.");
+      alert(t("errorConn"));
     } finally {
       setIsSubmitting(false);
     }
@@ -46,10 +48,10 @@ export default function OuvrirComptePage() {
             Onboarding
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-spec-black dark:text-white mb-6">
-            Ouvrir un Compte
+            {t("title")}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Rejoignez plus de 64 000 Togolais qui font confiance à la SPEC OIC. Consultez les conditions ci-dessous et laissez-nous vos coordonnées, un conseiller vous rappellera rapidement pour finaliser.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -61,41 +63,41 @@ export default function OuvrirComptePage() {
               <div className="w-12 h-12 bg-spec-blue/10 rounded-xl flex items-center justify-center mb-6">
                 <FileText className="w-6 h-6 text-spec-blue" />
               </div>
-              <h2 className="text-2xl font-bold text-spec-black dark:text-white mb-6">Conditions et Documents Requis</h2>
+              <h2 className="text-2xl font-bold text-spec-black dark:text-white mb-6">{t("condTitle")}</h2>
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-bold text-spec-blue dark:text-spec-blue-light mb-2">Pour les Particuliers</h3>
+                  <h3 className="font-bold text-spec-blue dark:text-spec-blue-light mb-2">{t("indivTitle")}</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700 dark:text-gray-300">Copie de la Carte Nationale d'Identité ou Passeport en cours de validité</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">{t("indiv1")}</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700 dark:text-gray-300">2 photos d'identité récentes</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">{t("indiv2")}</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700 dark:text-gray-300">Un justificatif de domicile (facture CEET/TdE de moins de 3 mois)</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">{t("indiv3")}</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700 dark:text-gray-300">Versement initial minimum de 5 000 FCFA</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">{t("indiv4")}</span>
                     </li>
                   </ul>
                 </div>
                 
                 <div className="border-t border-gray-100 dark:border-white/10 pt-6">
-                  <h3 className="font-bold text-spec-blue dark:text-spec-blue-light mb-2">Pour les Entreprises / Commerçants</h3>
+                  <h3 className="font-bold text-spec-blue dark:text-spec-blue-light mb-2">{t("bizTitle")}</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700 dark:text-gray-300">Documents d'enregistrement (Carte CFE, RCCM, etc.)</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">{t("biz1")}</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700 dark:text-gray-300">Pièces d'identité des signataires</span>
+                      <span className="text-sm text-gray-700 dark:text-gray-300">{t("biz2")}</span>
                     </li>
                   </ul>
                 </div>
@@ -111,10 +113,10 @@ export default function OuvrirComptePage() {
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
                   <UserPlus className="w-7 h-7 text-spec-blue" />
-                  <h2 className="text-2xl font-bold text-spec-black dark:text-white">Pré-ouverture en ligne</h2>
+                  <h2 className="text-2xl font-bold text-spec-black dark:text-white">{t("formTitle")}</h2>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-8">
-                  Remplissez ce formulaire et notre équipe vous contactera sous 24h ouvrées pour préparer votre dossier avant votre passage en agence.
+                  {t("formSubtitle")}
                 </p>
 
                 {isSubmitted ? (
@@ -122,15 +124,15 @@ export default function OuvrirComptePage() {
                     <div className="w-16 h-16 bg-green-100 dark:bg-green-800/50 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Send className="w-8 h-8 text-green-600 dark:text-green-400" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">Demande envoyée !</h3>
-                    <p className="text-sm">Un conseiller vous rappellera très vite pour finaliser votre ouverture de compte.</p>
+                    <h3 className="text-xl font-bold mb-2">{t("successTitle")}</h3>
+                    <p className="text-sm">{t("successDesc")}</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <input type="hidden" name="Subject" value="Demande d'Ouverture de Compte" />
                     
                     <div>
-                      <label htmlFor="nom" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Nom complet</label>
+                      <label htmlFor="nom" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">{t("fieldName")}</label>
                       <input 
                         type="text" 
                         id="nom" 
@@ -143,7 +145,7 @@ export default function OuvrirComptePage() {
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="tel" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Numéro de téléphone</label>
+                        <label htmlFor="tel" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">{t("fieldPhone")}</label>
                         <input 
                           type="tel" 
                           id="tel" 
@@ -154,7 +156,7 @@ export default function OuvrirComptePage() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="ville" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Ville / Quartier</label>
+                        <label htmlFor="ville" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">{t("fieldCity")}</label>
                         <input 
                           type="text" 
                           id="ville" 
@@ -167,7 +169,7 @@ export default function OuvrirComptePage() {
                     </div>
 
                     <div>
-                      <label htmlFor="produit" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Produit souhaité</label>
+                      <label htmlFor="produit" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">{t("fieldProduct")}</label>
                       <select 
                         id="produit" 
                         name="Produit Souhaite"
@@ -175,11 +177,11 @@ export default function OuvrirComptePage() {
                         defaultValue=""
                         className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-spec-black dark:text-white focus:ring-2 focus:ring-spec-blue outline-none transition-all appearance-none"
                       >
-                        <option value="" disabled>Sélectionnez un produit...</option>
-                        <option value="Epargne Classique">Compte Épargne Classique</option>
-                        <option value="Compte Courant Commercial">Compte Courant Commercial</option>
-                        <option value="Tontine">Tontine (Épargne Journalière)</option>
-                        <option value="Epargne Bloquee">Dépôt à Terme / Épargne Bloquée</option>
+                        <option value="" disabled>{t("selectProduct")}</option>
+                        <option value="Epargne Classique">{t("product1")}</option>
+                        <option value="Compte Courant Commercial">{t("product2")}</option>
+                        <option value="Tontine">{t("product3")}</option>
+                        <option value="Epargne Bloquee">{t("product4")}</option>
                       </select>
                     </div>
 
@@ -188,7 +190,7 @@ export default function OuvrirComptePage() {
                       disabled={isSubmitting}
                       className="w-full py-4 bg-spec-blue text-white rounded-xl font-bold shadow-lg shadow-spec-blue/30 hover:bg-spec-blue-dark transition-all disabled:opacity-70 flex items-center justify-center gap-2"
                     >
-                      {isSubmitting ? "Envoi en cours..." : "Me faire rappeler par un conseiller"}
+                      {isSubmitting ? t("sending") : t("cta")}
                     </button>
                   </form>
                 )}

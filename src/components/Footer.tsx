@@ -1,17 +1,23 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-
-const navLinks = [
-  { href: "/", label: "Accueil" },
-  { href: "/produits", label: "Produits & Services" },
-  { href: "/tarifs", label: "Grille Tarifaire" },
-  { href: "/gouvernance", label: "Gouvernance" },
-  { href: "/carrieres", label: "Carrières" },
-  { href: "/contact", label: "Contact" },
-];
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export function Footer() {
+  const t = useTranslations("Footer");
+  
+  const navLinks = [
+    { href: "/", label: t("nav.home") },
+    { href: "/produits", label: t("nav.products") },
+    { href: "/simulateur", label: t("nav.simulator") },
+    { href: "/tarifs", label: t("nav.rates") },
+    { href: "/gouvernance", label: t("nav.governance") },
+    { href: "/actualites", label: t("nav.news") },
+    { href: "/carrieres", label: t("nav.careers") },
+    { href: "/faq", label: "FAQ" },
+    { href: "/contact", label: t("nav.contact") },
+  ];
+
   return (
     <footer className="bg-white dark:bg-spec-black text-spec-black dark:text-white pt-20 pb-10 border-t border-gray-200 dark:border-white/10">
       <div className="container mx-auto px-6">
@@ -26,26 +32,26 @@ export function Footer() {
               <h3 className="text-2xl font-bold">SPEC OIC-Togo</h3>
             </div>
             <p className="text-gray-600 dark:text-gray-400 max-w-sm text-sm leading-relaxed">
-              Structure de Promotion d'Épargne et de Crédit, née de l'OIC-Togo (programme PARAT). Au service de l'inclusion financière au Togo depuis le 17 octobre 2002.
+              {t("desc")}
             </p>
             <div className="bg-spec-blue/10 border border-spec-blue/20 dark:border-spec-blue/30 rounded-lg p-3 inline-block">
               <p className="text-spec-blue dark:text-spec-blue-light text-xs font-bold uppercase tracking-wider">
-                Institution Agréée
+                {t("approvedTitle")}
               </p>
               <p className="text-gray-700 dark:text-gray-300 text-xs font-medium mt-1">
-                Agréée par le Ministère de l'Économie et des Finances sous le N° T/0123/2002
+                {t("approvedDesc")}
               </p>
             </div>
             <div className="text-xs text-gray-500 space-y-1 font-medium">
-              <p>Tutelle : Ministère des Finances & BCEAO</p>
-              <p>Membre de : APSFD Togo</p>
-              <p>Partenaire institutionnel : FNFI</p>
+              <p>{t("partner1")}</p>
+              <p>{t("partner2")}</p>
+              <p>{t("partner3")}</p>
             </div>
           </div>
 
           {/* Navigation column */}
           <div>
-            <h4 className="text-sm font-bold mb-5 uppercase tracking-wider text-spec-blue dark:text-spec-blue-light">Navigation</h4>
+            <h4 className="text-sm font-bold mb-5 uppercase tracking-wider text-spec-blue dark:text-spec-blue-light">{t("navigation")}</h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -63,7 +69,7 @@ export function Footer() {
 
           {/* Contact column */}
           <div>
-            <h4 className="text-sm font-bold mb-5 uppercase tracking-wider text-spec-blue dark:text-spec-blue-light">Coordonnées</h4>
+            <h4 className="text-sm font-bold mb-5 uppercase tracking-wider text-spec-blue dark:text-spec-blue-light">{t("contact")}</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
                 <MapPin className="w-4 h-4 text-spec-blue shrink-0 mt-0.5" />
@@ -79,7 +85,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400 pt-3 border-t border-gray-200 dark:border-white/10">
                 <Clock className="w-4 h-4 text-spec-blue shrink-0 mt-0.5" />
-                <span>Lun–Ven : 7h30–12h30 & 14h30–17h30</span>
+                <span>{t("hours")}</span>
               </li>
             </ul>
 
@@ -91,18 +97,18 @@ export function Footer() {
               className="mt-6 flex items-center gap-2 text-xs text-spec-blue hover:text-blue-300 transition-colors font-semibold"
             >
               <MapPin className="w-4 h-4" />
-              Voir sur Google Maps →
+              {t("map")} →
             </a>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-gray-200 dark:border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} SPEC OIC-Togo. Tous droits réservés.</p>
+          <p>© {new Date().getFullYear()} SPEC OIC-Togo. {t("rights")}.</p>
           <div className="flex items-center gap-6">
-            <Link href="/mentions-legales" className="hover:text-spec-blue dark:hover:text-gray-300 transition-colors">Mentions légales & Confidentialité</Link>
+            <Link href="/mentions-legales" className="hover:text-spec-blue dark:hover:text-gray-300 transition-colors">{t("legal")}</Link>
             <span className="hidden sm:inline">·</span>
-            <span>Inclusion financière depuis 2002</span>
+            <span>{t("since")}</span>
           </div>
         </div>
       </div>

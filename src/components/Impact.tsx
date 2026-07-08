@@ -2,27 +2,29 @@
 
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { useTranslations } from "next-intl";
 
 export function Impact() {
+  const t = useTranslations("Impact");
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   const metrics = [
-    { value: 100, label: "Milliards FCFA de crédits accordés", suffix: "Mds+" },
-    { value: 64000, label: "Membres actifs", suffix: "+" },
-    { value: 13, label: "Guichets au Togo", suffix: "" },
-    { value: 85, label: "Taux de remboursement", suffix: "%" },
+    { value: 100, label: t("metric1"), suffix: "Mds+" },
+    { value: 64000, label: t("metric2"), suffix: "+" },
+    { value: 13, label: t("metric3"), suffix: "" },
+    { value: 85, label: t("metric4"), suffix: "%" },
   ];
 
   return (
     <section id="impact" className="py-24 bg-spec-blue text-white" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Impact depuis 2002</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("title")}</h2>
           <p className="text-blue-100 text-lg">
-            Des résultats concrets qui témoignent de notre engagement quotidien pour le développement économique du Togo et l'inclusion financière de nos communautés.
+            {t("desc")}
           </p>
         </div>
         
