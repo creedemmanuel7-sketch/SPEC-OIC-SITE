@@ -32,7 +32,7 @@ export default function EspaceClientPage() {
           <form className="space-y-4 mb-8 relative">
             {/* Overlay that blocks the form */}
             <div className="absolute inset-0 z-20 bg-white/60 dark:bg-spec-dark/60 backdrop-blur-[2px] rounded-xl flex items-center justify-center border border-spec-blue/20">
-              <div className="bg-white dark:bg-spec-black p-4 rounded-xl shadow-lg border border-spec-blue/30 max-w-[80%] text-center">
+              <div className="bg-background dark:bg-spec-black p-4 rounded-xl shadow-lg border border-spec-blue/30 max-w-[80%] text-center">
                 <div className="flex justify-center mb-2">
                   <span className="flex h-3 w-3 relative">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-spec-blue opacity-75"></span>

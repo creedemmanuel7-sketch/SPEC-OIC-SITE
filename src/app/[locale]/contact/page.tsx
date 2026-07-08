@@ -57,10 +57,10 @@ export default function ContactPage() {
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Form Section */}
-          <div className="lg:col-span-2 bg-white dark:bg-spec-black rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 dark:border-white/5 relative overflow-hidden">
+          <div className="lg:col-span-2 bg-background dark:bg-spec-black rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 dark:border-white/5 relative overflow-hidden">
 
             {isSuccess ? (
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-white dark:bg-spec-black z-10 p-8 text-center animate-in fade-in duration-300">
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-background dark:bg-spec-black z-10 p-8 text-center animate-in fade-in duration-300">
                 <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-6">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
             </div>
 
             {/* Map */}
-            <div className="bg-white dark:bg-spec-black rounded-3xl p-4 shadow-xl border border-gray-100 dark:border-white/5 h-64 overflow-hidden relative">
+            <div className="bg-background dark:bg-spec-black rounded-3xl p-4 shadow-xl border border-gray-100 dark:border-white/5 h-64 overflow-hidden relative">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15833.568266497214!2d1.1578335!3d6.9538335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1026d30026dd372b%3A0xc3b8ab9f8c62c3e4!2sNots%C3%A8%2C%20Togo!5e0!3m2!1sfr!2sfr!4v1717540234567!5m2!1sfr!2sfr"
                 width="100%"

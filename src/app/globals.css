@@ -27,7 +27,7 @@
 /* ── Light / Dark Variables ─────────────────────────── */
 /* Light mode (default) */
 :root {
-  --background: #e2e8f0; /* Slate 200 - Encore plus teinté (gris-bleu doux) pour le confort visuel */
+  --background: #f1f5f9; /* Slate 100 - Plus teinté pour contraster avec les cartes blanches */
   --foreground: #0f172a;
   color-scheme: light;
 }

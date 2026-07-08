@@ -21,7 +21,7 @@ export function Calculator() {
     : 0;
 
   return (
-    <section className="py-24 bg-white dark:bg-spec-black">
+    <section className="py-24 bg-background dark:bg-spec-black">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">

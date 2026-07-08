@@ -33,7 +33,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-spec-black dark:text-white mb-12">{t("missionVisionTitle")}</h2>
             
             <div className="grid md:grid-cols-2 gap-8 text-left">
-              <div className="bg-white dark:bg-spec-black p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5">
+              <div className="bg-background dark:bg-spec-black p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5">
                 <div className="w-12 h-12 rounded-xl bg-spec-blue/10 flex items-center justify-center mb-6">
                   <span className="text-2xl">🎯</span>
                 </div>
@@ -43,7 +43,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="bg-white dark:bg-spec-black p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5">
+              <div className="bg-background dark:bg-spec-black p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5">
                 <div className="w-12 h-12 rounded-xl bg-spec-blue/10 flex items-center justify-center mb-6">
                   <span className="text-2xl">🔭</span>
                 </div>
@@ -58,7 +58,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-white dark:bg-spec-black">
+      <section className="py-24 bg-background dark:bg-spec-black">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-spec-black dark:text-white">{t("teamTitle")}</h2>

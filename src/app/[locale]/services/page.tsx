@@ -23,7 +23,7 @@ export default function ServicesPage() {
       
       <Services />
 
-      <section className="py-24 bg-white dark:bg-spec-black">
+      <section className="py-24 bg-background dark:bg-spec-black">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-12 items-center bg-gray-50 dark:bg-spec-dark rounded-3xl p-8 md:p-12 border border-gray-100 dark:border-white/5">
             <div className="flex-1">

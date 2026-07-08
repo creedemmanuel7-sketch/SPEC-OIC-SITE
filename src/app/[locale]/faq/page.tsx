@@ -33,7 +33,7 @@ export default function FAQPage() {
         </div>
       </div>
       
-      <section className="py-24 bg-white dark:bg-spec-black">
+      <section className="py-24 bg-background dark:bg-spec-black">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="space-y-8">
             {faqs.map((faq, i) => (

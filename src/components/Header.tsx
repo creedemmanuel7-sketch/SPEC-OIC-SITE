@@ -20,7 +20,7 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-spec-black/95 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-colors">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 dark:bg-spec-black/95 backdrop-blur-md border-b border-gray-200 dark:border-white/10 transition-colors">
       <div className="w-full max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 relative">
           <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
@@ -124,7 +124,7 @@ export function Header() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden absolute top-20 left-0 right-0 h-[calc(100vh-80px)] overflow-y-auto bg-white dark:bg-spec-black border-t border-gray-200 dark:border-white/10 shadow-xl px-6 py-6 pb-24 flex flex-col gap-2">
+        <div className="xl:hidden absolute top-20 left-0 right-0 h-[calc(100vh-80px)] overflow-y-auto bg-background dark:bg-spec-black border-t border-gray-200 dark:border-white/10 shadow-xl px-6 py-6 pb-24 flex flex-col gap-2">
           
           {/* Produits & Services Accordion */}
           <div className="border-b border-gray-100 dark:border-white/5 pb-2">

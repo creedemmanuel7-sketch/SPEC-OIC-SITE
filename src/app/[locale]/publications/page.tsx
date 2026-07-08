@@ -54,7 +54,7 @@ export default function PublicationsPage() {
                   {section.category}
                 </h2>
                 
-                <div className="bg-white dark:bg-spec-black border border-gray-100 dark:border-white/5 rounded-2xl shadow-sm overflow-hidden">
+                <div className="bg-background dark:bg-spec-black border border-gray-100 dark:border-white/5 rounded-2xl shadow-sm overflow-hidden">
                   {section.items.map((doc, docIdx) => (
                     <div 
                       key={doc.id}

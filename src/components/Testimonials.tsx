@@ -63,7 +63,7 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section className="py-24 bg-white dark:bg-spec-black text-spec-black dark:text-white relative overflow-hidden">
+    <section className="py-24 bg-background dark:bg-spec-black text-spec-black dark:text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5 dark:opacity-10" />
       <div className="absolute top-0 right-0 -mr-24 -mt-24 w-80 h-80 rounded-full border-[12px] border-spec-blue/10 pointer-events-none" />
       <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-96 h-96 rounded-full border-[16px] border-spec-blue/10 pointer-events-none" />

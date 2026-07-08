@@ -5,7 +5,7 @@ export function Services() {
   const t = useTranslations("Services");
 
   return (
-    <section id="services" className="py-24 bg-white dark:bg-spec-black">
+    <section id="services" className="py-24 bg-background dark:bg-spec-black">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-spec-black dark:text-white">

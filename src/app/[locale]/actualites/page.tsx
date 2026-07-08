@@ -62,7 +62,7 @@ export default function ActualitesPage() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             {articles.map((article) => (
-              <article key={article.id} className="bg-white dark:bg-spec-black rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-white/5 flex flex-col group hover:-translate-y-1 transition-transform duration-300">
+              <article key={article.id} className="bg-background dark:bg-spec-black rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-white/5 flex flex-col group hover:-translate-y-1 transition-transform duration-300">
                 <div className="relative h-48 md:h-64 overflow-hidden">
                   <Image 
                     src={article.image}

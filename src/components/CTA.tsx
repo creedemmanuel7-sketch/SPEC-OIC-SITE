@@ -11,7 +11,7 @@ export function CTA() {
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full border-[30px] border-spec-blue/5" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="bg-white dark:bg-spec-black rounded-3xl p-10 md:p-16 shadow-2xl border border-gray-100 dark:border-white/5 text-center max-w-4xl mx-auto flex flex-col items-center">
+        <div className="bg-background dark:bg-spec-black rounded-3xl p-10 md:p-16 shadow-2xl border border-gray-100 dark:border-white/5 text-center max-w-4xl mx-auto flex flex-col items-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-spec-black dark:text-white">
             {t.rich("title", {
               strong: (chunks) => <span className="text-spec-blue">{chunks}</span>

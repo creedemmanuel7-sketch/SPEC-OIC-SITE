@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 export function About() {
   const t = useTranslations("About");
   return (
-    <section id="about" className="py-24 bg-white dark:bg-spec-black overflow-hidden">
+    <section id="about" className="py-24 bg-background dark:bg-spec-black overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
           {/* Text Column History */}
