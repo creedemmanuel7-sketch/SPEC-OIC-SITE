@@ -17,7 +17,15 @@
     "tools_rates": "Tools & Rates",
     "about_spec": "About SPEC",
     "aboutUs": "About Us",
-    "network": "Our Network"
+    "network": "Our Network",
+    "prod_savings": "Regular Savings",
+    "prod_tontine": "Tontine",
+    "prod_credit_solidaire": "Solidarity Credit",
+    "prod_credit_individuel": "Individual Credit",
+    "prod_transfers": "Money Transfers",
+    "prod_commercial": "Commercial Checking Account",
+    "prod_agri": "Agricultural Credit",
+    "prod_term": "Term Deposit"
   },
   "Hero": {
     "badge": "Approved Institution N° T/0123/2002 — Since 2002",

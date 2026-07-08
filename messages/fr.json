@@ -17,7 +17,15 @@
     "tools_rates": "Outils & Tarifs",
     "about_spec": "À Propos de la SPEC",
     "aboutUs": "Qui sommes-nous",
-    "network": "Notre Réseau"
+    "network": "Notre Réseau",
+    "prod_savings": "Épargne Classique",
+    "prod_tontine": "Tontine",
+    "prod_credit_solidaire": "Crédit Solidaire",
+    "prod_credit_individuel": "Crédit Individuel",
+    "prod_transfers": "Transferts d'argent",
+    "prod_commercial": "Compte Courant Commercial",
+    "prod_agri": "Crédit Agricole",
+    "prod_term": "Dépôt à Terme"
   },
   "Hero": {
     "badge": "Institution Agréée N° T/0123/2002 — Depuis 2002",

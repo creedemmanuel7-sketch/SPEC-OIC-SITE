@@ -24,7 +24,7 @@ export function Header() {
       <div className="w-full max-w-[1600px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 relative">
           <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
-            <Image src="/logo-icon.png" alt="SPEC OIC-Togo Logo" fill className="object-contain" />
+            <Image src="/logo-icon.png" alt="SPEC OIC-Togo Logo" fill sizes="(max-width: 768px) 64px, 80px" className="object-contain" />
           </div>
           <span className="text-xl md:text-2xl font-extrabold text-spec-black dark:text-white tracking-tight hidden sm:block">SPEC OIC-Togo</span>
         </Link>
@@ -43,19 +43,19 @@ export function Header() {
               <div className="w-1/2 p-6 bg-gray-50/50 dark:bg-white/5 border-r border-gray-100 dark:border-white/5">
                 <h3 className="text-spec-blue font-bold mb-4 text-sm uppercase tracking-wider">{t.has("individuals") ? t("individuals") : "Particuliers & Pros"}</h3>
                 <ul className="space-y-3">
-                  <li><Link href="/produits" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">Épargne Classique</Link></li>
-                  <li><Link href="/produits" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">Tontine</Link></li>
-                  <li><Link href="/produits" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">Crédit Solidaire</Link></li>
-                  <li><Link href="/produits" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">Crédit Individuel</Link></li>
-                  <li><Link href="/services" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">Transferts d'argent</Link></li>
+                  <li><Link href="/produits#epargne-classique" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">{t.has("prod_savings") ? t("prod_savings") : "Épargne Classique"}</Link></li>
+                  <li><Link href="/produits#tontine" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">{t.has("prod_tontine") ? t("prod_tontine") : "Tontine"}</Link></li>
+                  <li><Link href="/produits#credit-solidaire" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">{t.has("prod_credit_solidaire") ? t("prod_credit_solidaire") : "Crédit Solidaire"}</Link></li>
+                  <li><Link href="/produits#credit-individuel" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">{t.has("prod_credit_individuel") ? t("prod_credit_individuel") : "Crédit Individuel"}</Link></li>
+                  <li><Link href="/services#transferts" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">{t.has("prod_transfers") ? t("prod_transfers") : "Transferts d'argent"}</Link></li>
                 </ul>
               </div>
               <div className="w-1/2 p-6">
                 <h3 className="text-spec-blue font-bold mb-4 text-sm uppercase tracking-wider">{t.has("businesses") ? t("businesses") : "Entreprises"}</h3>
                 <ul className="space-y-3">
-                  <li><Link href="/produits" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">Compte Courant Commercial</Link></li>
-                  <li><Link href="/produits" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">Crédit Agricole</Link></li>
-                  <li><Link href="/produits" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">Dépôt à Terme</Link></li>
+                  <li><Link href="/produits#compte-courant" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">{t.has("prod_commercial") ? t("prod_commercial") : "Compte Courant Commercial"}</Link></li>
+                  <li><Link href="/produits#credit-agricole" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">{t.has("prod_agri") ? t("prod_agri") : "Crédit Agricole"}</Link></li>
+                  <li><Link href="/produits#depot-terme" className="text-gray-600 dark:text-gray-400 hover:text-spec-blue dark:hover:text-spec-blue font-medium text-sm block">{t.has("prod_term") ? t("prod_term") : "Dépôt à Terme"}</Link></li>
                 </ul>
               </div>
             </div>
@@ -135,14 +135,16 @@ export function Header() {
             {openSection === 'produits' && (
               <div className="flex flex-col gap-3 pl-4 pb-4">
                 <p className="text-xs font-bold text-spec-blue uppercase">{t.has("individuals") ? t("individuals") : "Particuliers & Pros"}</p>
-                <Link href="/produits" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">Épargne Classique</Link>
-                <Link href="/produits" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">Tontine</Link>
-                <Link href="/produits" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">Crédit Solidaire</Link>
-                <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">Transferts d'argent</Link>
+                <Link href="/produits#epargne-classique" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">{t.has("prod_savings") ? t("prod_savings") : "Épargne Classique"}</Link>
+                <Link href="/produits#tontine" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">{t.has("prod_tontine") ? t("prod_tontine") : "Tontine"}</Link>
+                <Link href="/produits#credit-solidaire" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">{t.has("prod_credit_solidaire") ? t("prod_credit_solidaire") : "Crédit Solidaire"}</Link>
+                <Link href="/produits#credit-individuel" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">{t.has("prod_credit_individuel") ? t("prod_credit_individuel") : "Crédit Individuel"}</Link>
+                <Link href="/services#transferts" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">{t.has("prod_transfers") ? t("prod_transfers") : "Transferts d'argent"}</Link>
                 
                 <p className="text-xs font-bold text-spec-blue uppercase mt-2">{t.has("businesses") ? t("businesses") : "Entreprises"}</p>
-                <Link href="/produits" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">Compte Courant Commercial</Link>
-                <Link href="/produits" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">Crédit Agricole</Link>
+                <Link href="/produits#compte-courant" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">{t.has("prod_commercial") ? t("prod_commercial") : "Compte Courant Commercial"}</Link>
+                <Link href="/produits#credit-agricole" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">{t.has("prod_agri") ? t("prod_agri") : "Crédit Agricole"}</Link>
+                <Link href="/produits#depot-terme" onClick={() => setIsMobileMenuOpen(false)} className="text-gray-600 dark:text-gray-400">{t.has("prod_term") ? t("prod_term") : "Dépôt à Terme"}</Link>
               </div>
             )}
           </div>
