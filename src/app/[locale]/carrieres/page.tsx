@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { Briefcase, Send, MapPin, Clock } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function CarrieresPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const t = useTranslations("Careers");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,22 +40,22 @@ export default function CarrieresPage() {
 
   const jobs = [
     {
-      title: "Agent de Crédit Agricole",
-      location: "Région des Plateaux",
-      type: "Temps Plein",
-      desc: "Accompagnement des groupements paysans dans la constitution des dossiers de crédit et suivi des remboursements post-récolte."
+      title: t("job1Title"),
+      location: t("job1Location"),
+      type: t("job1Type"),
+      desc: t("job1Desc")
     },
     {
-      title: "Caissier(ère)",
-      location: "Lomé",
-      type: "Temps Plein",
-      desc: "Accueil de la clientèle, opérations de dépôt/retrait et gestion rigoureuse de la caisse quotidienne."
+      title: t("job2Title"),
+      location: t("job2Location"),
+      type: t("job2Type"),
+      desc: t("job2Desc")
     },
     {
-      title: "Agent de Collecte (Tontine)",
-      location: "Kpalimé",
-      type: "Temps Plein",
-      desc: "Collecte journalière de l'épargne auprès des commerçants du marché central."
+      title: t("job3Title"),
+      location: t("job3Location"),
+      type: t("job3Type"),
+      desc: t("job3Desc")
     }
   ];
 
@@ -64,13 +66,13 @@ export default function CarrieresPage() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-spec-blue/10 text-spec-blue dark:text-spec-blue-light text-xs font-bold uppercase tracking-wider mb-4 border border-spec-blue/20">
-            Rejoignez-nous
+            {t("badge")}
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-spec-black dark:text-white mb-6">
-            Faites carrière à la SPEC
+            {t("title")}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Contribuez à une mission qui a du sens. Nous recherchons des talents passionnés par l'inclusion financière et le développement du Togo.
+            {t("desc")}
           </p>
         </div>
 
@@ -80,7 +82,7 @@ export default function CarrieresPage() {
           <div className="lg:col-span-3 space-y-6">
             <h2 className="text-2xl font-bold text-spec-black dark:text-white mb-6 flex items-center gap-2">
               <Briefcase className="w-6 h-6 text-spec-blue" />
-              Offres Actuelles
+              {t("currentOffers")}
             </h2>
             
             {jobs.map((job, idx) => (
@@ -94,7 +96,7 @@ export default function CarrieresPage() {
                   {job.desc}
                 </p>
                 <a href="#postuler" className="text-spec-blue dark:text-spec-blue-light font-bold text-sm hover:underline">
-                  Postuler à cette offre &rarr;
+                  {t("apply")} &rarr;
                 </a>
               </div>
             ))}
@@ -103,9 +105,9 @@ export default function CarrieresPage() {
           {/* Formulaire Candidature Spontanée */}
           <div className="lg:col-span-2" id="postuler">
             <div className="bg-white dark:bg-white/[0.02] rounded-3xl p-8 border border-gray-100 dark:border-white/5 shadow-xl shadow-black/5 dark:shadow-none sticky top-32">
-              <h2 className="text-2xl font-bold text-spec-black dark:text-white mb-2">Candidature</h2>
+              <h2 className="text-2xl font-bold text-spec-black dark:text-white mb-2">{t("application")}</h2>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-8">
-                Postulez à une offre ou envoyez une candidature spontanée.
+                {t("applicationDesc")}
               </p>
 
               {isSubmitted ? (
@@ -113,13 +115,13 @@ export default function CarrieresPage() {
                   <div className="w-16 h-16 bg-green-100 dark:bg-green-800/50 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Send className="w-8 h-8 text-green-600 dark:text-green-400" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Candidature Envoyée !</h3>
-                  <p className="text-sm">Notre équipe RH vous recontactera très prochainement.</p>
+                  <h3 className="text-xl font-bold mb-2">{t("successTitle")}</h3>
+                  <p className="text-sm">{t("successDesc")}</p>
                   <button 
                     onClick={() => setIsSubmitted(false)}
                     className="mt-6 text-spec-blue font-semibold hover:underline text-sm"
                   >
-                    Envoyer une autre candidature
+                    {t("anotherApplication")}
                   </button>
                 </div>
               ) : (
@@ -127,7 +129,7 @@ export default function CarrieresPage() {
                   <input type="hidden" name="Subject" value="Candidature Emploi SPEC OIC" />
                   
                   <div>
-                    <label htmlFor="nom" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Nom complet</label>
+                    <label htmlFor="nom" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">{t("name")}</label>
                     <input 
                       type="text" 
                       id="nom" 
@@ -151,19 +153,19 @@ export default function CarrieresPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="poste" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Poste visé</label>
+                    <label htmlFor="poste" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">{t("targetJob")}</label>
                     <input 
                       type="text" 
                       id="poste" 
                       name="Poste Vise" 
                       required
                       className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-spec-black dark:text-white focus:ring-2 focus:ring-spec-blue outline-none transition-all"
-                      placeholder="Ex: Agent de Crédit ou Spontanée"
+                      placeholder={t("targetJobPlaceholder")}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Lien CV (LinkedIn ou Drive)</label>
+                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">{t("cvLink")}</label>
                     <input 
                       type="url" 
                       id="cv" 
@@ -171,7 +173,7 @@ export default function CarrieresPage() {
                       className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-spec-black dark:text-white focus:ring-2 focus:ring-spec-blue outline-none transition-all text-sm"
                       placeholder="https://..."
                     />
-                    <p className="text-xs text-gray-500 mt-1">Collez un lien public vers votre CV</p>
+                    <p className="text-xs text-gray-500 mt-1">{t("cvHelp")}</p>
                   </div>
 
                   <button 
@@ -179,7 +181,7 @@ export default function CarrieresPage() {
                     disabled={isSubmitting}
                     className="w-full py-4 bg-spec-blue text-white rounded-xl font-bold shadow-lg shadow-spec-blue/30 hover:bg-spec-blue-dark transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
-                    {isSubmitting ? "Envoi en cours..." : "Envoyer ma candidature"}
+                    {isSubmitting ? t("submitting") : t("submitBtn")}
                   </button>
                 </form>
               )}

@@ -1,40 +1,43 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export const metadata = {
   title: "Gouvernance | SPEC OIC-Togo",
   description: "Découvrez l'équipe dirigeante de la SPEC OIC-Togo, engagée pour l'inclusion financière.",
 };
 
-const team = [
-  {
-    name: "M. Kokou A.",
-    role: "Directeur Marketing",
-    image: "/team/dir_marketing.png",
-    bio: "Expert en stratégie de développement et relations publiques."
-  },
-  {
-    name: "Mme. Afiwa E.",
-    role: "Directrice de la Tontine",
-    image: "/team/dir_tontine.png",
-    bio: "Plus de 15 ans d'expérience dans l'organisation de l'épargne communautaire."
-  },
-  {
-    name: "M. Kodjo M.",
-    role: "Directeur de l'Épargne",
-    image: "/team/dir_epargne.png",
-    bio: "Spécialiste en gestion des risques et produits financiers."
-  },
-  {
-    name: "M. Yao S.",
-    role: "Directeur des Opérations",
-    image: "/team/dir_operations.png",
-    bio: "Garant de l'efficacité de notre réseau d'agences."
-  }
-];
-
 export default function GouvernancePage() {
+  const t = useTranslations("Gouvernance");
+
+  const team = [
+    {
+      name: "M. Kokou A.",
+      role: t("member1Role"),
+      image: "/team/dir_marketing.png",
+      bio: t("member1Bio")
+    },
+    {
+      name: "Mme. Afiwa E.",
+      role: t("member2Role"),
+      image: "/team/dir_tontine.png",
+      bio: t("member2Bio")
+    },
+    {
+      name: "M. Kodjo M.",
+      role: t("member3Role"),
+      image: "/team/dir_epargne.png",
+      bio: t("member3Bio")
+    },
+    {
+      name: "M. Yao S.",
+      role: t("member4Role"),
+      image: "/team/dir_operations.png",
+      bio: t("member4Bio")
+    }
+  ];
+
   return (
     <main className="pt-28 pb-20 min-h-screen bg-gray-50 dark:bg-spec-black transition-colors duration-300">
       <div className="container mx-auto px-6">
@@ -42,13 +45,13 @@ export default function GouvernancePage() {
         {/* En-tête de la page */}
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-spec-blue/10 text-spec-blue dark:text-spec-blue-light text-xs font-bold uppercase tracking-wider mb-4 border border-spec-blue/20">
-            Notre Équipe
+            {t("badge")}
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-spec-black dark:text-white mb-6">
-            Gouvernance
+            {t("title")}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            Une équipe dirigeante expérimentée et dévouée, travaillant chaque jour pour offrir les meilleurs services financiers à nos communautés.
+            {t("desc")}
           </p>
         </div>
 
@@ -67,18 +70,14 @@ export default function GouvernancePage() {
                 />
               </div>
               <h3 className="text-2xl font-bold text-spec-black dark:text-white">Dr. Emmanuel C.</h3>
-              <p className="text-spec-blue font-medium">Directeur Général</p>
+              <p className="text-spec-blue font-medium">{t("dgTitle")}</p>
             </div>
             
             <div className="w-full md:w-2/3">
-              <h2 className="text-3xl font-bold text-spec-black dark:text-white mb-6">Le mot du Directeur Général</h2>
+              <h2 className="text-3xl font-bold text-spec-black dark:text-white mb-6">{t("dgWord")}</h2>
               <div className="space-y-4 text-gray-600 dark:text-gray-300 text-lg leading-relaxed italic border-l-4 border-spec-blue pl-6">
-                <p>
-                  "Depuis la création de la SPEC OIC-Togo en 2002, notre mission est restée inchangée : lutter contre la précarité en favorisant l'inclusion financière des populations vulnérables, des petits exploitants agricoles et des artisans.
-                </p>
-                <p>
-                  Aujourd'hui, avec plus de 64 000 membres actifs, nous sommes fiers de voir les fruits de notre engagement quotidien. Mais notre travail n'est pas terminé. Nous continuons d'innover pour vous offrir des services toujours plus adaptés et sécurisés."
-                </p>
+                <p>{t("dgQuote1")}</p>
+                <p>{t("dgQuote2")}</p>
               </div>
             </div>
           </div>
@@ -87,9 +86,9 @@ export default function GouvernancePage() {
         {/* L'Équipe de Direction */}
         <section>
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-spec-black dark:text-white mb-4">Comité de Direction</h2>
+            <h2 className="text-3xl font-bold text-spec-black dark:text-white mb-4">{t("committeeTitle")}</h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Des experts dans leurs domaines respectifs qui pilotent la stratégie et les opérations de l'institution au quotidien.
+              {t("committeeDesc")}
             </p>
           </div>
 

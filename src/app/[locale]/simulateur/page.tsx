@@ -1,4 +1,5 @@
 import { Calculator } from "@/components/Calculator";
+import { useTranslations } from "next-intl";
 
 export const metadata = {
   title: "Simulateur de Crédit et d'Épargne - SPEC OIC-Togo",
@@ -6,6 +7,8 @@ export const metadata = {
 };
 
 export default function SimulateurPage() {
+  const t = useTranslations("Simulateur");
+
   return (
     <main className="min-h-screen pt-20">
       {/* Header Section */}
@@ -14,11 +17,11 @@ export default function SimulateurPage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">
-              Simulez votre <br/>
-              <span className="text-spec-blue">Avenir Financier</span>
+              {t("title")} <br/>
+              <span className="text-spec-blue">{t("titleHighlight")}</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              Planifiez votre avenir en toute sérénité. Que vous ayez besoin d'un financement pour votre projet ou que vous souhaitiez faire fructifier votre argent, notre outil vous donne une estimation immédiate.
+              {t("desc")}
             </p>
           </div>
         </div>

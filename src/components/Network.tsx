@@ -1,5 +1,6 @@
 import { MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import MapComponent from "./MapComponent";
 
 const getAgencies = (t: any) => [
   {
@@ -42,6 +43,10 @@ export function Network() {
               strong: (chunks) => <strong className="font-bold text-spec-blue">{chunks}</strong>
             })}
           </p>
+        </div>
+
+        <div className="mb-16">
+          <MapComponent />
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

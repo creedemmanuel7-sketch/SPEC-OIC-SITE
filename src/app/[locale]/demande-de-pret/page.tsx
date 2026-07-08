@@ -2,19 +2,20 @@
 
 import { useState } from "react";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export default function DemandePretPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const t = useTranslations("LoanRequest");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     try {
-      // Pour l'instant, même configuration Formspree que la page Contact
-      const response = await fetch("https://formspree.io/f/VOTRE_ID_FORMSPREE", {
+      const response = await fetch("https://formspree.io/f/xvgzyjbk", {
         method: "POST",
         body: new FormData(e.currentTarget),
         headers: {
@@ -42,9 +43,9 @@ export default function DemandePretPage() {
       <section className="bg-spec-black text-white py-12 md:py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/hero_agriculture.png')] bg-cover bg-center opacity-40 mix-blend-overlay" />
         <div className="container mx-auto px-6 relative z-10 text-center">
-          <h1 className="text-3xl md:text-5xl font-extrabold mb-4">Demande de Crédit</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-4">{t("heroTitle")}</h1>
           <p className="text-blue-100 max-w-2xl mx-auto text-lg">
-            Remplissez ce formulaire pour initier votre demande. Un agent vous contactera sous 48h.
+            {t("heroDesc")}
           </p>
         </div>
       </section>
@@ -57,12 +58,12 @@ export default function DemandePretPage() {
               <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mb-6">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h2 className="text-2xl font-bold text-spec-black dark:text-white mb-4">Demande envoyée !</h2>
+              <h2 className="text-2xl font-bold text-spec-black dark:text-white mb-4">{t("successTitle")}</h2>
               <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
-                Votre demande de crédit a été transmise avec succès à notre équipe. Un chargé de clientèle vous contactera sous 48h pour analyser votre dossier.
+                {t("successDesc")}
               </p>
               <Link href="/" className="px-6 py-3 bg-spec-blue text-white rounded-xl font-semibold flex items-center gap-2 hover:bg-spec-blue-dark transition-colors">
-                Retour à l'accueil <ArrowRight className="w-4 h-4" />
+                {t("backHome")} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           ) : null}
@@ -70,24 +71,24 @@ export default function DemandePretPage() {
           <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
             {/* Section 1: Infos Personnelles */}
             <div>
-              <h3 className="text-lg font-bold text-spec-blue mb-4 border-b border-gray-100 dark:border-white/10 pb-2">1. Informations Personnelles</h3>
+              <h3 className="text-lg font-bold text-spec-blue mb-4 border-b border-gray-100 dark:border-white/10 pb-2">{t("section1")}</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Nom et Prénoms *</label>
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t("nameLabel")}</label>
                   <input required type="text" name="nom" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50 focus:ring-2 focus:ring-spec-blue outline-none dark:text-white" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Téléphone (WhatsApp de préférence) *</label>
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t("phoneLabel")}</label>
                   <input required type="tel" name="telephone" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50 focus:ring-2 focus:ring-spec-blue outline-none dark:text-white" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Ville / Localité *</label>
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t("cityLabel")}</label>
                   <input required type="text" name="ville" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50 focus:ring-2 focus:ring-spec-blue outline-none dark:text-white" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Agence SPEC la plus proche *</label>
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t("agencyLabel")}</label>
                   <select required name="agence" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50 focus:ring-2 focus:ring-spec-blue outline-none dark:text-white">
-                    <option value="">Sélectionnez une agence...</option>
+                    <option value="">{t("agencyPlaceholder")}</option>
                     <option value="Notsè">Notsè (Siège)</option>
                     <option value="Atakpamé">Atakpamé</option>
                     <option value="Kpékplémé">Kpékplémé</option>
@@ -98,14 +99,14 @@ export default function DemandePretPage() {
 
             {/* Section 2: Détails du Crédit */}
             <div>
-              <h3 className="text-lg font-bold text-spec-blue mb-4 border-b border-gray-100 dark:border-white/10 pb-2">2. Votre Projet</h3>
+              <h3 className="text-lg font-bold text-spec-blue mb-4 border-b border-gray-100 dark:border-white/10 pb-2">{t("section2")}</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Montant souhaité (FCFA) *</label>
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t("amountLabel")}</label>
                   <input required type="number" name="montant" min="30000" step="5000" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50 focus:ring-2 focus:ring-spec-blue outline-none dark:text-white" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Durée de remboursement (Mois) *</label>
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t("durationLabel")}</label>
                   <select required name="duree" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50 focus:ring-2 focus:ring-spec-blue outline-none dark:text-white">
                     <option value="6">6 mois</option>
                     <option value="12">12 mois</option>
@@ -115,32 +116,32 @@ export default function DemandePretPage() {
                   </select>
                 </div>
                 <div className="space-y-2 md:col-span-2">
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Type de Crédit *</label>
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t("creditTypeLabel")}</label>
                   <select required name="type_credit" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50 focus:ring-2 focus:ring-spec-blue outline-none dark:text-white">
-                    <option value="">Sélectionnez le type de crédit...</option>
-                    <option value="Agricole">Crédit Agricole (Campagne, Matériel)</option>
-                    <option value="Commercial">Crédit Commercial (Stock, Boutique)</option>
-                    <option value="Tontine">Crédit Tontine / Prépayé</option>
-                    <option value="Artisanat">Crédit Artisanat</option>
+                    <option value="">{t("creditTypePlaceholder")}</option>
+                    <option value="Agricole">{t("creditType1")}</option>
+                    <option value="Commercial">{t("creditType2")}</option>
+                    <option value="Tontine">{t("creditType3")}</option>
+                    <option value="Artisanat">{t("creditType4")}</option>
                   </select>
                 </div>
                 <div className="space-y-2 md:col-span-2">
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Description brève de l'activité ou du projet *</label>
-                  <textarea required name="description" rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50 focus:ring-2 focus:ring-spec-blue outline-none dark:text-white resize-none" placeholder="Ex: Achat d'intrants pour 2 hectares de maïs..."></textarea>
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t("descriptionLabel")}</label>
+                  <textarea required name="description" rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50 focus:ring-2 focus:ring-spec-blue outline-none dark:text-white resize-none" placeholder={t("descriptionPlaceholder")}></textarea>
                 </div>
               </div>
             </div>
 
             <div className="bg-blue-50 dark:bg-spec-blue/10 p-4 rounded-xl flex gap-3 text-sm text-spec-blue dark:text-blue-300">
-              <span className="font-bold">Note :</span>
-              <p>Cette demande en ligne est une pré-qualification. L'octroi du crédit est soumis à l'étude approfondie de votre dossier par le comité de crédit et à l'ouverture d'un compte (si non membre).</p>
+              <span className="font-bold">{t("noteLabel")}</span>
+              <p>{t("noteText")}</p>
             </div>
 
             <button disabled={isSubmitting} type="submit" className="w-full py-4 bg-spec-blue text-white rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors shadow-xl shadow-spec-blue/30 disabled:opacity-70 flex items-center justify-center gap-2">
               {isSubmitting ? (
-                <>Traitement en cours...</>
+                <>{t("submitting")}</>
               ) : (
-                <>Soumettre la demande <ArrowRight className="w-5 h-5" /></>
+                <>{t("submitBtn")} <ArrowRight className="w-5 h-5" /></>
               )}
             </button>
           </form>

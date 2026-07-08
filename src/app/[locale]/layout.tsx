@@ -86,6 +86,7 @@ export default async function RootLayout({
       </head>
       <body
         className={`${outfit.variable} font-sans antialiased bg-background text-foreground flex flex-col min-h-screen`}
+        suppressHydrationWarning
       >
         <ThemeProvider
           attribute="class"
