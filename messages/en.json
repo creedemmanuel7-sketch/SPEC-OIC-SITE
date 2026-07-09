@@ -156,7 +156,8 @@
     "product4": "Fixed-Term Deposit / Blocked Savings",
     "sending": "Sending...",
     "cta": "Have an advisor call me back",
-    "errorConn": "Connection error."
+    "errorConn": "Connection error.",
+    "badge": "Onboarding"
   },
   "Careers": {
     "badge": "Join us",
@@ -357,7 +358,14 @@
     "noteLabel": "Note:",
     "noteText": "This online request is a pre-qualification. Credit approval is subject to an in-depth review of your file by the credit committee and to opening an account (if not yet a member).",
     "submitting": "Processing...",
-    "submitBtn": "Submit request"
+    "submitBtn": "Submit request",
+    "duration6m": "6 months",
+    "duration12m": "12 months",
+    "duration18m": "18 months",
+    "duration24m": "24 months",
+    "duration36m": "36 months",
+    "errorSubmit": "An error occurred while submitting. Please try again.",
+    "errorConn": "Network error. Please check your connection."
   },
   "Calculator": {
     "sectionTitle": "Simulate your project",
@@ -437,5 +445,19 @@
     "doc5Date": "Updated in 2020",
     "doc6Title": "Code of Ethics and Professional Conduct",
     "doc6Date": "February 2018"
+  },
+  "Legal": {
+    "title": "Legal Notice & Privacy Policy",
+    "section1_title": "1. Site Publisher",
+    "section1_text": "This site is published by the <strong class='text-spec-blue'>Structure de Promotion d'Épargne et de Crédit (SPEC OIC-Togo)</strong>, a Microfinance Institution.<br /><br /><strong>Head Office:</strong> Notsè, Haho Prefecture, Togo.<br /><strong>Email:</strong> secretariat.dg.specoic@gmail.com",
+    "section2_title": "2. Approval & Regulation",
+    "section2_text": "SPEC OIC-Togo is an officially recognized and approved microfinance institution by the Togolese authorities. Its operations are under the control and regulation of the <strong>Central Bank of West African States (BCEAO)</strong> and the Ministry of Economy and Finance of the Togolese Republic.",
+    "section3_title": "3. Personal Data Protection",
+    "section3_text1": "In accordance with ECOWAS and UEMOA directives regarding the protection of personal data, SPEC OIC is committed to preserving the confidentiality of information provided online by users and by its members in branches.",
+    "section3_text2": "The data collected via our contact forms (last name, first name, phone number, email) is exclusively intended for the processing of your request by our internal services. They are in no case sold, transferred, or rented to third parties.",
+    "section4_title": "4. Intellectual Property",
+    "section4_text": "All elements constituting this site (texts, graphics, software, photographs, images, videos, sounds, plans, names, logos, brands, various protectable creations and works, databases, etc...) as well as the site itself, are subject to Togolese and international laws on copyright and intellectual property.",
+    "section5_title": "5. Limitation of Liability",
+    "section5_text": "SPEC OIC strives to ensure to the best of its ability the accuracy and updating of the information broadcast on this site, of which it reserves the right to correct the content at any time and without notice. However, the financial or service information presented does not have absolute contractual value and must be confirmed at the branch."
   }
 }

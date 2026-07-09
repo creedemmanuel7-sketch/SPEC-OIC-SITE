@@ -28,10 +28,10 @@ export default function DemandePretPage() {
         (e.target as HTMLFormElement).reset();
         setTimeout(() => setIsSuccess(false), 8000);
       } else {
-        alert("Erreur lors de l'envoi de la demande. Veuillez réessayer.");
+        alert(t("errorSubmit"));
       }
     } catch (error) {
-      alert("Erreur réseau. Veuillez vérifier votre connexion.");
+      alert(t("errorConn"));
     } finally {
       setIsSubmitting(false);
     }
@@ -108,11 +108,11 @@ export default function DemandePretPage() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-700 dark:text-gray-300">{t("durationLabel")}</label>
                   <select required name="duree" className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-spec-black/50 focus:ring-2 focus:ring-spec-blue outline-none dark:text-white">
-                    <option value="6">6 mois</option>
-                    <option value="12">12 mois</option>
-                    <option value="18">18 mois</option>
-                    <option value="24">24 mois</option>
-                    <option value="36">36 mois</option>
+                     <option value="6">{t("duration6m")}</option>
+                     <option value="12">{t("duration12m")}</option>
+                     <option value="18">{t("duration18m")}</option>
+                     <option value="24">{t("duration24m")}</option>
+                     <option value="36">{t("duration36m")}</option>
                   </select>
                 </div>
                 <div className="space-y-2 md:col-span-2">

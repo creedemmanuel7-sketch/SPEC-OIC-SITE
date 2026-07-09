@@ -156,7 +156,8 @@
     "product4": "Dépôt à Terme / Épargne Bloquée",
     "sending": "Envoi en cours...",
     "cta": "Me faire rappeler par un conseiller",
-    "errorConn": "Erreur de connexion."
+    "errorConn": "Erreur de connexion.",
+    "badge": "Onboarding"
   },
   "Careers": {
     "badge": "Rejoignez-nous",
@@ -357,7 +358,14 @@
     "noteLabel": "Note :",
     "noteText": "Cette demande en ligne est une pré-qualification. L'octroi du crédit est soumis à l'étude approfondie de votre dossier par le comité de crédit et à l'ouverture d'un compte (si non membre).",
     "submitting": "Traitement en cours...",
-    "submitBtn": "Soumettre la demande"
+    "submitBtn": "Soumettre la demande",
+    "duration6m": "6 mois",
+    "duration12m": "12 mois",
+    "duration18m": "18 mois",
+    "duration24m": "24 mois",
+    "duration36m": "36 mois",
+    "errorSubmit": "Erreur lors de l'envoi de la demande. Veuillez réessayer.",
+    "errorConn": "Erreur réseau. Veuillez vérifier votre connexion."
   },
   "Calculator": {
     "sectionTitle": "Simulez votre projet",
@@ -437,5 +445,19 @@
     "doc5Date": "Mis à jour en 2020",
     "doc6Title": "Code d'Éthique et de Déontologie",
     "doc6Date": "Février 2018"
+  },
+  "Legal": {
+    "title": "Mentions Légales & Confidentialité",
+    "section1_title": "1. Éditeur du Site",
+    "section1_text": "Le présent site est édité par la <strong class='text-spec-blue'>Structure de Promotion d'Épargne et de Crédit (SPEC OIC-Togo)</strong>, Institution de Microfinance.<br /><br /><strong>Siège Social :</strong> Notsè, Préfecture de Haho, Togo.<br /><strong>Email :</strong> secretariat.dg.specoic@gmail.com",
+    "section2_title": "2. Agrément & Réglementation",
+    "section2_text": "La SPEC OIC-Togo est une institution de microfinance officiellement reconnue et agréée par les autorités togolaises. Ses opérations sont placées sous le contrôle et la réglementation de la <strong>Banque Centrale des États de l'Afrique de l'Ouest (BCEAO)</strong> et du Ministère de l'Économie et des Finances de la République Togolaise.",
+    "section3_title": "3. Protection des Données Personnelles",
+    "section3_text1": "Conformément aux directives de la CEDEAO et de l'UEMOA relatives à la protection des données à caractère personnel, la SPEC OIC s'engage à préserver la confidentialité des informations fournies en ligne par les internautes et par ses membres en agence.",
+    "section3_text2": "Les données collectées via nos formulaires de contact (nom, prénom, numéro de téléphone, email) sont exclusivement destinées au traitement de votre demande par nos services internes. Elles ne sont en aucun cas vendues, cédées ou louées à des tiers.",
+    "section4_title": "4. Propriété Intellectuelle",
+    "section4_text": "L'ensemble des éléments constituant ce site (textes, graphismes, logiciels, photographies, images, vidéos, sons, plans, noms, logos, marques, créations et œuvres protégeables diverses, bases de données, etc...) ainsi que le site lui-même, relèvent des législations togolaises et internationales sur le droit d'auteur et la propriété intellectuelle.",
+    "section5_title": "5. Limitation de Responsabilité",
+    "section5_text": "La SPEC OIC s'efforce d'assurer au mieux de ses possibilités l'exactitude et la mise à jour des informations diffusées sur ce site, dont elle se réserve le droit de corriger, à tout moment et sans préavis, le contenu. Toutefois, les informations financières ou de services présentées n'ont pas de valeur contractuelle absolue et doivent être confirmées en guichet."
   }
 }

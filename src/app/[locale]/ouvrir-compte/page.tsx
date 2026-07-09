@@ -45,7 +45,7 @@ export default function OuvrirComptePage() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-spec-blue/10 text-spec-blue dark:text-spec-blue-light text-xs font-bold uppercase tracking-wider mb-4 border border-spec-blue/20">
-            Onboarding
+            {t("badge")}
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-spec-black dark:text-white mb-6">
             {t("title")}
