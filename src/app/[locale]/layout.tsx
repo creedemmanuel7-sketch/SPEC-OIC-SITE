@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | SPEC OIC-Togo",
   },
   description:
-    "La SPEC OIC-Togo est une institution de microfinance agréée, active depuis octobre 2002. Épargne, crédit agricole, transfert d'argent — au service de 64 000 membres dans les régions des Plateaux et Centrale.",
+    "La SPEC OIC-Togo est une institution de microfinance agréée, active depuis octobre 2002. Épargne, crédit agricole, transfert d'argent — au service de 64 000 membres dans la région des Plateaux et en partie dans la région Maritime.",
   keywords: ["microfinance", "Togo", "épargne", "crédit agricole", "Notsè", "SPEC OIC", "BCEAO"],
   manifest: "/manifest.json",
   appleWebApp: {

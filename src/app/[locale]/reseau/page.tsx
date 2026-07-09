@@ -13,7 +13,7 @@ export default function ReseauPage() {
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-spec-black dark:text-white mb-6">Nos Agences et Guichets</h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Toujours plus proches de vous. Découvrez notre réseau de 3 agences principales et 13 guichets déployés dans les régions des Plateaux et de la Centrale.
+            Toujours plus proches de vous. Découvrez notre réseau de 3 agences principales et 13 guichets déployés dans la région des Plateaux et en partie dans la région Maritime.
           </p>
         </div>
       </div>
